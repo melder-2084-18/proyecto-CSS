@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <style>
         /* ================= VARIABLES Y RESET ================= */
         :root {
@@ -18,8 +18,6 @@
             --text-dark: #1E293B;
             --text-gray: #64748B;
             --border-color: #E2E8F0;
-            --success-green: #059669;
-            --danger-red: #E11D48;
         }
 
         * {
@@ -43,10 +41,6 @@
             list-style: none;
         }
 
-        button {
-            font-family: 'Inter', sans-serif;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -68,18 +62,13 @@
             gap: 10px;
         }
 
-        .logo-icon-fallback {
-            color: var(--primary-blue);
-            font-size: 24px;
-        }
-
         .logo h1 {
             font-size: 24px;
             font-weight: 800;
             color: var(--primary-blue);
             margin-bottom: -5px;
         }
-
+        
         .logo span {
             color: var(--text-dark);
         }
@@ -108,7 +97,6 @@
             justify-content: center;
             align-items: center;
             margin-right: 10px;
-            flex-shrink: 0;
         }
 
         .search-bar input {
@@ -131,38 +119,12 @@
             font-size: 12px;
             color: var(--text-dark);
             cursor: pointer;
-            background: none;
-            border: none;
-            position: relative;
         }
 
         .action-item i {
             font-size: 20px;
             margin-bottom: 5px;
             color: #333;
-        }
-
-        .action-item span {
-            white-space: nowrap;
-            max-width: 90px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .badge-count {
-            position: absolute;
-            top: -6px;
-            right: 8px;
-            background-color: var(--danger-red);
-            color: white;
-            font-size: 10px;
-            font-weight: 700;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         /* ================= NAVEGACIÓN ================= */
@@ -290,8 +252,6 @@
             align-items: center;
             gap: 15px;
             cursor: pointer;
-            border: none;
-            text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -311,12 +271,12 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .benefit-card.green .benefit-icon {
-            color: #059669;
+            color: #059669; 
         }
         .benefit-card.light .benefit-icon {
-             color: #7C3AED;
+             color: #7C3AED; 
         }
 
         .benefit-text h4 {
@@ -328,21 +288,20 @@
             color: #333;
         }
 
-        /* ================= VENTANA EMERGENTE (MODAL) BASE ================= */
+        /* ================= VENTANA EMERGENTE (MODAL) ================= */
         .modal-overlay {
-            display: none;
+            display: none; /* Oculto por defecto */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
             z-index: 9999;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            padding: 20px;
         }
 
         .modal-overlay.active {
@@ -354,24 +313,17 @@
             background-color: #ffffff;
             padding: 30px;
             border-radius: 16px;
-            width: 100%;
+            width: 90%;
             max-width: 400px;
             text-align: center;
             position: relative;
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             transform: translateY(-30px);
             transition: transform 0.3s ease;
-            max-height: 85vh;
-            overflow-y: auto;
         }
 
         .modal-overlay.active .modal-box {
-            transform: translateY(0);
-        }
-
-        .modal-box.modal-wide {
-            max-width: 520px;
-            text-align: left;
+            transform: translateY(0); /* Efecto de entrada */
         }
 
         .modal-close-btn {
@@ -382,7 +334,6 @@
             cursor: pointer;
             color: var(--text-gray);
             transition: color 0.2s;
-            line-height: 1;
         }
 
         .modal-close-btn:hover {
@@ -397,18 +348,6 @@
             font-weight: 500;
         }
 
-        .modal-icon-top {
-            font-size: 40px;
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-        }
-
-        .modal-title {
-            font-size: 20px;
-            font-weight: 800;
-            margin-top: 10px;
-        }
-
         .modal-btn {
             background-color: var(--primary-blue);
             color: white;
@@ -419,182 +358,10 @@
             font-size: 15px;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: 100%;
         }
 
         .modal-btn:hover {
             background-color: #1a4099;
-        }
-
-        .modal-btn.secondary {
-            background-color: transparent;
-            color: var(--text-gray);
-            border: 1px solid var(--border-color);
-            margin-top: 10px;
-        }
-        .modal-btn.secondary:hover {
-            background-color: var(--bg-light);
-        }
-
-        /* ================= LOGIN / REGISTRO ================= */
-        .form-group {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text-gray);
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px 14px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            font-size: 14px;
-            outline: none;
-        }
-        .form-group input:focus {
-            border-color: var(--primary-blue);
-        }
-        .form-error {
-            color: var(--danger-red);
-            font-size: 13px;
-            font-weight: 600;
-            margin: -10px 0 12px;
-            display: none;
-        }
-        .form-switch {
-            text-align: center;
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-top: 15px;
-        }
-        .form-switch a {
-            color: var(--primary-blue);
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* ================= FAVORITOS / CARRITO LISTA ================= */
-        .list-empty {
-            text-align: center;
-            color: var(--text-gray);
-            padding: 30px 10px;
-        }
-        .list-empty i {
-            font-size: 36px;
-            margin-bottom: 10px;
-            display: block;
-            color: var(--border-color);
-        }
-
-        .mini-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .mini-item:last-child {
-            border-bottom: none;
-        }
-        .mini-item-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
-            background: var(--bg-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: var(--primary-blue);
-            flex-shrink: 0;
-        }
-        .mini-item-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .mini-item-info h5 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 3px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .mini-item-info p {
-            font-size: 13px;
-            color: var(--text-gray);
-            font-weight: 600;
-            margin: 0;
-        }
-        .mini-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .qty-btn {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            border: 1px solid var(--border-color);
-            background: white;
-            cursor: pointer;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .qty-value {
-            font-size: 13px;
-            font-weight: 700;
-            min-width: 16px;
-            text-align: center;
-        }
-        .remove-btn {
-            background: none;
-            border: none;
-            color: var(--danger-red);
-            cursor: pointer;
-            font-size: 15px;
-            margin-left: 4px;
-        }
-
-        .cart-total-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            font-weight: 800;
-            font-size: 17px;
-            border-top: 2px solid var(--text-dark);
-            margin-top: 5px;
-        }
-
-        /* ================= CONFIRMACIÓN DE COMPRA ================= */
-        .order-success-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: #D1FAE5;
-            color: var(--success-green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 34px;
-            margin: 0 auto 15px;
-        }
-        .order-number {
-            background: var(--bg-light);
-            border-radius: 10px;
-            padding: 12px;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--primary-blue);
-            margin: 10px 0 20px;
         }
 
         /* ================= OFERTAS DEL DÍA ================= */
@@ -633,32 +400,6 @@
             font-weight: 800;
             color: var(--text-dark);
             z-index: 10;
-        }
-
-        .favorite-toggle {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 10;
-            background: white;
-            border: 1px solid var(--border-color);
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text-gray);
-            font-size: 15px;
-            transition: transform 0.15s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .favorite-toggle:hover {
-            transform: scale(1.08);
-        }
-        .favorite-toggle.active {
-            color: var(--danger-red);
-            border-color: var(--danger-red);
         }
 
         .product-image {
@@ -703,7 +444,7 @@
             color: #FBBF24;
             font-size: 12px;
         }
-
+        
         .stars i { margin-right: 2px; }
 
         .btn-cart {
@@ -717,56 +458,45 @@
             justify-content: center;
             cursor: pointer;
             color: var(--text-dark);
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        }
-        .btn-cart:hover {
-            background-color: var(--primary-blue);
-            border-color: var(--primary-blue);
-            color: white;
-        }
-        .btn-cart.added {
-            background-color: var(--success-green);
-            border-color: var(--success-green);
-            color: white;
         }
 
         /* ================= BANNER RENOVÁ TU ESTILO ================= */
-        .promo-banner {
-            background: #F4F8FB;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-radius: 16px;
-            margin-top: 40px;
-            padding: 40px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            min-height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
+.promo-banner {
+    background: #F4F8FB; /* Color sólido celeste muy claro */
+    border: 1px solid #E2E8F0; /* Borde sutil */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Sombra ligera de tarjeta */
+    border-radius: 16px;
+    margin-top: 40px;
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .promo-text h3 {
-            font-size: 44px;
-            color: #5B21B6;
-            line-height: 1.1;
-        }
+.promo-text h3 {
+    font-size: 44px;
+    color: #5B21B6; /* Color morado oscuro idéntico al diseño */
+    line-height: 1.1;
+}
 
-        .promo-text p {
-            font-size: 20px;
-            color: #D946EF;
-            font-weight: 700;
-            margin-top: 10px;
-        }
+.promo-text p {
+    font-size: 20px;
+    color: #D946EF; /* Color magenta */
+    font-weight: 700;
+    margin-top: 10px;
+}
 
-        .promo-image {
-            position: absolute;
-            right: 80px;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 85%;
-            object-fit: contain;
-        }
+.promo-image {
+    position: absolute;
+    right: 80px; /* Separación desde la derecha */
+    top: 50%; /* Inicio del centrado vertical */
+    transform: translateY(-50%); /* Centrado vertical exacto */
+    height: 85%; /* Ajusta el tamaño para que no se corte abajo ni arriba */
+    object-fit: contain;
+}
 
         /* ================= FOOTER ================= */
         .footer {
@@ -793,31 +523,14 @@
             margin-bottom: 12px;
         }
 
-        .footer-col ul li a,
-        .footer-col ul li button {
+        .footer-col ul li a {
             color: var(--text-gray);
             font-size: 14px;
             transition: color 0.3s;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            text-align: left;
-            font-family: 'Inter', sans-serif;
         }
 
-        .footer-col ul li a:hover,
-        .footer-col ul li button:hover {
+        .footer-col ul li a:hover {
             color: var(--primary-blue);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-gray);
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
         }
 
         .social-icons {
@@ -836,39 +549,6 @@
             border-radius: 50%;
             color: #333;
             font-size: 16px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-        .social-icons a:hover {
-            background-color: var(--primary-blue);
-            color: white;
-        }
-
-        /* Toast de notificación */
-        #toast {
-            position: fixed;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: var(--text-dark);
-            color: white;
-            padding: 12px 22px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 10000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease, transform 0.25s ease;
-        }
-        #toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        #toast i {
-            color: #34D399;
         }
     </style>
 </head>
@@ -893,20 +573,18 @@
             </div>
 
             <div class="user-actions">
-                <button class="action-item" id="btnLogin" onclick="onUserIconClick()">
+                <div class="action-item">
                     <i class="fa-regular fa-user"></i>
-                    <span id="userLabel">Iniciar Sesión</span>
-                </button>
-                <button class="action-item" onclick="abrirFavoritos()">
+                    <span>Iniciar Sesión</span>
+                </div>
+                <div class="action-item">
                     <i class="fa-regular fa-heart"></i>
                     <span>favoritos</span>
-                    <span class="badge-count" id="favBadge" style="display:none;">0</span>
-                </button>
-                <button class="action-item" onclick="abrirCarrito()">
+                </div>
+                <div class="action-item">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Carrito</span>
-                    <span class="badge-count" id="cartBadge" style="display:none;">0</span>
-                </button>
+                </div>
             </div>
         </header>
 
@@ -931,49 +609,103 @@
                 <div class="hero-content">
                     <h2>Todo lo que te gusta,<br><span>al mejor precio</span></h2>
                     <p>miles de productos originales a precios increibles.</p>
-                    <button class="btn-primary" onclick="document.getElementById('ofertas').scrollIntoView({behavior:'smooth'})">
+                    <button class="btn-primary">
                         comprar ahora <i class="fa-solid fa-arrow-right"></i>
                     </button>
-                </div>
-
+                </div> 
+                
+                <!-- Imagen de Hero -->
                 <div class="hero-image-placeholder"></div>
-
+                
+                <!-- Etiqueta 50% OFF -->
                 <div class="hero-badge">
                     Ofertas<br>hasta el<br><span>50%OFF</span>
                 </div>
             </section>
 
-            <!-- BANNERS DE BENEFICIOS -->
+            <!-- BANNERS DE BENEFICIOS (CON LA NUEVA VENTANA EMERGENTE) -->
             <section class="benefits-banner">
-                <button class="benefit-card blue" onclick="mostrarInfo('fa-solid fa-truck', 'Envíos a todo el país', '¡Recibe tus productos en la puerta de tu casa en menos de 24/48 horas para que disfrutes tu compra cuanto antes!')">
+                <!-- Se cambió el "alert" por la función "mostrarModal" -->
+                <div class="benefit-card blue" onclick="mostrarModal('¡Recibe tus productos en la puerta de tu casa en menos de 24/48 horas para que disfrutes tu compra cuanto antes!')">
                     <div class="benefit-icon"><i class="fa-solid fa-truck"></i></div>
                     <div class="benefit-text">
                         <h4>Envíos a todo el país</h4>
                         <p>Rapidos y seguros</p>
                     </div>
-                </button>
-
-                <button class="benefit-card green" onclick="mostrarInfo('fa-solid fa-shield', 'Pagos 100% seguros', 'Utilizamos tecnología de encriptación avanzada. Tus datos y tu dinero están totalmente protegidos en cada transacción.')">
+                </div>
+                
+                <div class="benefit-card green" onclick="mostrarModal('Utilizamos tecnología de encriptación avanzada. Tus datos y tu dinero están totalmente protegidos en cada transacción.')">
                     <div class="benefit-icon"><i class="fa-solid fa-shield"></i></div>
                     <div class="benefit-text">
                         <h4>Pagos 100% seguros</h4>
                         <p>Tu compra protegida</p>
                     </div>
-                </button>
-
-                <button class="benefit-card light" onclick="mostrarInfo('fa-solid fa-tag', 'Precios bajos todos los días', '¿No era lo que esperabas? Tienes 30 días para devolver o cambiar tu producto sin ningún costo adicional ni papeleos.')">
+                </div>
+                
+                <div class="benefit-card light" onclick="mostrarModal('¿No era lo que esperabas? Tienes 30 días para devolver o cambiar tu producto sin ningún costo adicional ni papeleos.')">
                     <div class="benefit-icon"><i class="fa-solid fa-tag"></i></div>
                     <div class="benefit-text">
                         <h4>Precios bajos todos los días</h4>
                         <p>Calidad al mejor precio</p>
                     </div>
-                </button>
+                </div>
             </section>
 
             <!-- OFERTAS DEL DÍA -->
-            <h3 class="section-title" id="ofertas">🔥 Ofertas del dia</h3>
-            <section class="products-grid" id="productsGrid">
-                <!-- Los productos se generan dinámicamente con JavaScript -->
+            <h3 class="section-title">🔥 Ofertas del dia</h3>
+            <section class="products-grid">
+                
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="discount-badge">-40%</div>
+                    <img src="Assets/sueter banner 2.png" alt="Buzo adidas" class="product-image">
+                    <h4 class="product-title">Buzo adidas Classic hombre</h4>
+                    <div class="product-prices">
+                        <span class="price-current">$12.99</span>
+                        <span class="price-old">$15.99</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                        <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <div class="discount-badge">-35%</div>
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=300&q=80" alt="Perfume" class="product-image">
+                    <h4 class="product-title">Perfume Dream 100ml</h4>
+                    <div class="product-prices">
+                        <span class="price-current">$75.00</span>
+                        <span class="price-old">$89.00</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <div class="discount-badge">-30%</div>
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80" alt="Mochila" class="product-image">
+                    <h4 class="product-title">Mochila Urban</h4>
+                    <div class="product-prices">
+                        <span class="price-current">$15.99</span>
+                        <span class="price-old">$22.00</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                        <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </article>
+
             </section>
 
             <!-- BANNER INFERIOR -->
@@ -982,6 +714,7 @@
                     <h3>Renová tu<br>estilo</h3>
                     <p>Descubrí lo nuevo en moda</p>
                 </div>
+                <!-- Imagen de muestra -->
                 <img src="Assets/chica banner 2.png" alt="Moda" class="promo-image" style="object-fit: cover; border-radius: 50%;">
             </section>
         </main>
@@ -999,577 +732,71 @@
                     </div>
                 </div>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
-
+            
             <div class="footer-col">
                 <h4>COMPRA</h4>
                 <ul>
-                    <li><button onclick="document.querySelector('.btn-categories').click()">Todas las categorias</button></li>
-                    <li><button onclick="document.getElementById('ofertas').scrollIntoView({behavior:'smooth'})">Ofertas</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-sparkles', 'Novedades', 'Todas las semanas sumamos productos nuevos a nuestro catálogo. ¡Volvé pronto para verlos primero!')">Novedades</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-copyright', 'Marcas', 'Trabajamos únicamente con marcas originales y proveedores verificados para garantizar la calidad de cada producto.')">Marcas</button></li>
-                    <li><button onclick="document.getElementById('ofertas').scrollIntoView({behavior:'smooth'})">Más vendidos</button></li>
+                    <li><a href="#">Todas las categorias</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Novedades</a></li>
+                    <li><a href="#">Marcas</a></li>
+                    <li><a href="#">Más vendidos</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>AYUDA</h4>
                 <ul>
-                    <li><button onclick="mostrarInfo('fa-solid fa-truck', 'Envíos', 'Realizamos envíos a todo el país en 24/48 horas. El costo de envío se calcula automáticamente al finalizar tu compra según tu ubicación.')">Envios</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega. Todas las transacciones están protegidas con encriptación de extremo a extremo.')">Pagos</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar un cambio o devolución sin costo adicional.')">Cambios y devoluciones</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas sobre tu pedido, pagos o envíos? Visita nuestro centro de ayuda o escríbenos y te responderemos en menos de 24 horas.')">Preguntas frecuentes</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com o al chat en línea, disponible de lunes a sábado de 8:00 a.m. a 6:00 p.m.')">Contacto</button></li>
+                    <li><a href="#">Envios</a></li>
+                    <li><a href="#">Pagos</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>MI CUENTA</h4>
                 <ul>
-                    <li><button onclick="onUserIconClick()" id="footerLoginBtn">Iniciar sesion</button></li>
-                    <li><button onclick="verPedidos()">Mis pedidos</button></li>
+                    <li><a href="#">Iniciar sesion</a></li>
+                    <li><a href="#">Mis pedidos</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            © 2026 novaAIR. Todos los derechos reservados.
-        </div>
     </footer>
 
-    <!-- ============ MODAL GENÉRICO DE INFORMACIÓN ============ -->
-    <div id="infoModal" class="modal-overlay">
+    <!-- ESTRUCTURA HTML DEL MODAL PERSONALIZADO -->
+    <div id="miModal" class="modal-overlay">
         <div class="modal-box">
-            <span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span>
-            <i id="infoModalIcon" class="modal-icon-top fa-solid fa-circle-info"></i>
-            <h3 id="infoModalTitle" class="modal-title">Información</h3>
-            <p id="infoModalText">Este es un mensaje de prueba.</p>
-            <button class="modal-btn" onclick="cerrarModal('infoModal')">Aceptar</button>
+            <!-- Botón X para cerrar -->
+            <span class="modal-close-btn" onclick="cerrarModal()">&times;</span>
+            
+            <!-- Aquí se inyectará el texto dinámicamente -->
+            <p id="textoModal">Este es un mensaje de prueba.</p>
+            
+            <!-- Botón Aceptar para cerrar -->
+            <button class="modal-btn" onclick="cerrarModal()">Aceptar</button>
         </div>
     </div>
 
-    <!-- ============ MODAL DE LOGIN / REGISTRO ============ -->
-    <div id="loginModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="modal-close-btn" onclick="cerrarModal('loginModal')">&times;</span>
-            <i class="fa-regular fa-circle-user modal-icon-top"></i>
-            <h3 class="modal-title" id="loginModalTitle">Iniciar sesión</h3>
-
-            <div id="loginFields">
-                <div class="form-group" id="nameFieldGroup" style="display:none;">
-                    <label>Nombre</label>
-                    <input type="text" id="regName" placeholder="Tu nombre">
-                </div>
-                <div class="form-group">
-                    <label>Correo electrónico</label>
-                    <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com">
-                </div>
-                <div class="form-group">
-                    <label>Contraseña</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••">
-                </div>
-                <p class="form-error" id="loginError">Completa todos los campos para continuar.</p>
-                <button class="modal-btn" id="loginSubmitBtn" onclick="procesarLogin()">Iniciar sesión</button>
-            </div>
-
-            <p class="form-switch">
-                <span id="switchLoginText">¿No tienes cuenta? <a onclick="cambiarModoLogin(true)">Regístrate</a></span>
-                <span id="switchRegisterText" style="display:none;">¿Ya tienes cuenta? <a onclick="cambiarModoLogin(false)">Inicia sesión</a></span>
-            </p>
-        </div>
-    </div>
-
-    <!-- ============ MODAL DE SESIÓN ACTIVA ============ -->
-    <div id="accountModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="modal-close-btn" onclick="cerrarModal('accountModal')">&times;</span>
-            <i class="fa-regular fa-circle-user modal-icon-top"></i>
-            <h3 class="modal-title">¡Hola, <span id="accountUserName">Usuario</span>!</h3>
-            <p>Sesión iniciada correctamente. Desde aquí puedes revisar tus pedidos o cerrar tu sesión.</p>
-            <button class="modal-btn" onclick="cerrarModal('accountModal'); verPedidos();">Ver mis pedidos</button>
-            <button class="modal-btn secondary" onclick="cerrarSesion()">Cerrar sesión</button>
-        </div>
-    </div>
-
-    <!-- ============ MODAL DE FAVORITOS ============ -->
-    <div id="favModal" class="modal-overlay">
-        <div class="modal-box modal-wide">
-            <span class="modal-close-btn" onclick="cerrarModal('favModal')">&times;</span>
-            <h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-heart" style="color:var(--danger-red);"></i> Tus favoritos</h3>
-            <div id="favList"></div>
-        </div>
-    </div>
-
-    <!-- ============ MODAL DE CARRITO ============ -->
-    <div id="cartModal" class="modal-overlay">
-        <div class="modal-box modal-wide">
-            <span class="modal-close-btn" onclick="cerrarModal('cartModal')">&times;</span>
-            <h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-cart-shopping"></i> Tu carrito</h3>
-            <div id="cartList"></div>
-            <div id="cartTotalWrap" style="display:none;">
-                <div class="cart-total-row">
-                    <span>Total</span>
-                    <span id="cartTotalValue">$0.00</span>
-                </div>
-                <button class="modal-btn" onclick="irACheckout()">Finalizar compra</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============ MODAL DE CONFIRMACIÓN DE COMPRA ============ -->
-    <div id="checkoutModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="modal-close-btn" onclick="cerrarModal('checkoutModal')">&times;</span>
-            <i class="fa-solid fa-box-open modal-icon-top"></i>
-            <h3 class="modal-title">Confirmar pedido</h3>
-            <p>Estás a punto de comprar <strong id="checkoutCount">0</strong> producto(s) por un total de <strong id="checkoutTotal">$0.00</strong>. Se simulará el pago con tu método guardado.</p>
-            <button class="modal-btn" onclick="confirmarCompra()">Confirmar y pagar</button>
-            <button class="modal-btn secondary" onclick="cerrarModal('checkoutModal')">Cancelar</button>
-        </div>
-    </div>
-
-    <!-- ============ MODAL DE ÉXITO DE COMPRA ============ -->
-    <div id="successModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="modal-close-btn" onclick="cerrarModal('successModal')">&times;</span>
-            <div class="order-success-icon"><i class="fa-solid fa-check"></i></div>
-            <h3 class="modal-title">¡Compra realizada!</h3>
-            <p>Gracias por tu compra. Te enviamos la confirmación a tu correo y comenzaremos a preparar tu pedido.</p>
-            <div class="order-number" id="orderNumberText">Pedido #000000</div>
-            <button class="modal-btn" onclick="cerrarModal('successModal')">Seguir comprando</button>
-        </div>
-    </div>
-
-    <!-- ============ MODAL DE MIS PEDIDOS ============ -->
-    <div id="ordersModal" class="modal-overlay">
-        <div class="modal-box modal-wide">
-            <span class="modal-close-btn" onclick="cerrarModal('ordersModal')">&times;</span>
-            <h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-receipt"></i> Mis pedidos</h3>
-            <div id="ordersList"></div>
-        </div>
-    </div>
-
-    <!-- Notificación tipo toast -->
-    <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
-
-    <!-- SCRIPT PRINCIPAL -->
+    <!-- SCRIPT PARA CONTROLAR EL MODAL -->
     <script>
-        /* =====================================================
-           ESTADO DE LA APLICACIÓN (en memoria, se reinicia al recargar)
-           ===================================================== */
-        const state = {
-            user: null,              // { name, email }
-            favorites: new Set(),    // ids de productos favoritos
-            cart: {},                // { id: cantidad }
-            orders: [],              // pedidos simulados
-            registeredUser: null,    // { name, email, password } — cuenta "registrada" en esta sesión
-            loginMode: 'login'       // 'login' | 'register'
-        };
-
-        /* Catálogo de productos */
-        const products = [
-            {
-                id: 'p1',
-                title: 'Buzo adidas Classic hombre',
-                image: 'Assets/sueter banner 2.png',
-                priceCurrent: 12.99,
-                priceOld: 15.99,
-                discount: '-40%',
-                stars: 4
-            },
-            {
-                id: 'p2',
-                title: 'Perfume Dream 100ml',
-                image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=300&q=80',
-                priceCurrent: 75.00,
-                priceOld: 89.00,
-                discount: '-35%',
-                stars: 5
-            },
-            {
-                id: 'p3',
-                title: 'Mochila Urban',
-                image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80',
-                priceCurrent: 15.99,
-                priceOld: 22.00,
-                discount: '-30%',
-                stars: 3
-            }
-        ];
-
-        /* =====================================================
-           RENDER DE PRODUCTOS
-           ===================================================== */
-        function renderStars(count) {
-            let html = '';
-            for (let i = 0; i < 5; i++) {
-                html += i < count ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
-            }
-            return html;
+        // Función que recibe el texto y abre el modal
+        function mostrarModal(mensaje) {
+            document.getElementById("textoModal").innerText = mensaje;
+            document.getElementById("miModal").classList.add("active");
         }
 
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = products.map(p => `
-                <article class="product-card">
-                    <div class="discount-badge">${p.discount}</div>
-                    <button class="favorite-toggle ${state.favorites.has(p.id) ? 'active' : ''}" id="fav-${p.id}" onclick="toggleFavorite('${p.id}')" title="Agregar a favoritos">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                    <img src="${p.image}" alt="${p.title}" class="product-image">
-                    <h4 class="product-title">${p.title}</h4>
-                    <div class="product-prices">
-                        <span class="price-current">$${p.priceCurrent.toFixed(2)}</span>
-                        <span class="price-old">$${p.priceOld.toFixed(2)}</span>
-                    </div>
-                    <div class="product-footer">
-                        <div class="stars">${renderStars(p.stars)}</div>
-                        <button class="btn-cart" id="cartbtn-${p.id}" onclick="addToCart('${p.id}')" title="Agregar al carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </article>
-            `).join('');
+        // Función que cierra el modal
+        function cerrarModal() {
+            document.getElementById("miModal").classList.remove("active");
         }
-
-        /* =====================================================
-           UTILIDADES: MODALES Y TOAST
-           ===================================================== */
-        function abrirModal(id) {
-            document.getElementById(id).classList.add('active');
-        }
-        function cerrarModal(id) {
-            document.getElementById(id).classList.remove('active');
-        }
-        function mostrarInfo(icono, titulo, texto) {
-            document.getElementById('infoModalIcon').className = 'modal-icon-top ' + icono;
-            document.getElementById('infoModalTitle').textContent = titulo;
-            document.getElementById('infoModalText').textContent = texto;
-            abrirModal('infoModal');
-        }
-        let toastTimer = null;
-        function mostrarToast(texto) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastText').textContent = texto;
-            toast.classList.add('show');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
-        }
-
-        // Cerrar modal al hacer clic fuera de la caja
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) overlay.classList.remove('active');
-            });
-        });
-
-        /* =====================================================
-           LOGIN / SESIÓN
-           ===================================================== */
-        function onUserIconClick() {
-            if (state.user) {
-                document.getElementById('accountUserName').textContent = state.user.name;
-                abrirModal('accountModal');
-            } else {
-                cambiarModoLogin(false);
-                abrirModal('loginModal');
-            }
-        }
-
-        function cambiarModoLogin(esRegistro) {
-            state.loginMode = esRegistro ? 'register' : 'login';
-            document.getElementById('nameFieldGroup').style.display = esRegistro ? 'block' : 'none';
-            document.getElementById('loginModalTitle').textContent = esRegistro ? 'Crear cuenta' : 'Iniciar sesión';
-            document.getElementById('loginSubmitBtn').textContent = esRegistro ? 'Crear cuenta' : 'Iniciar sesión';
-            document.getElementById('switchLoginText').style.display = esRegistro ? 'none' : 'inline';
-            document.getElementById('switchRegisterText').style.display = esRegistro ? 'inline' : 'none';
-            document.getElementById('loginError').style.display = 'none';
-        }
-
-        function procesarLogin() {
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value.trim();
-            const errorEl = document.getElementById('loginError');
-
-            if (state.loginMode === 'register') {
-                const name = document.getElementById('regName').value.trim();
-                if (!name || !email || !password) {
-                    errorEl.textContent = 'Completa todos los campos para continuar.';
-                    errorEl.style.display = 'block';
-                    return;
-                }
-                state.registeredUser = { name, email, password };
-                state.user = { name, email };
-                mostrarToast('Cuenta creada. ¡Bienvenido/a, ' + name + '!');
-            } else {
-                if (!email || !password) {
-                    errorEl.textContent = 'Ingresa tu correo y contraseña.';
-                    errorEl.style.display = 'block';
-                    return;
-                }
-                // Simulación simple: si hay una cuenta registrada, valida contra ella;
-                // si no, acepta el inicio de sesión igualmente para efectos de demo.
-                if (state.registeredUser && state.registeredUser.email === email && state.registeredUser.password !== password) {
-                    errorEl.textContent = 'Contraseña incorrecta. Intenta de nuevo.';
-                    errorEl.style.display = 'block';
-                    return;
-                }
-                const name = (state.registeredUser && state.registeredUser.email === email)
-                    ? state.registeredUser.name
-                    : email.split('@')[0];
-                state.user = { name, email };
-                mostrarToast('¡Bienvenido/a de nuevo, ' + name + '!');
-            }
-
-            errorEl.style.display = 'none';
-            document.getElementById('loginEmail').value = '';
-            document.getElementById('loginPassword').value = '';
-            document.getElementById('regName').value = '';
-            actualizarUI();
-            cerrarModal('loginModal');
-        }
-
-        function cerrarSesion() {
-            state.user = null;
-            cerrarModal('accountModal');
-            actualizarUI();
-            mostrarToast('Sesión cerrada correctamente.');
-        }
-
-        function actualizarUI() {
-            const label = document.getElementById('userLabel');
-            const footerBtn = document.getElementById('footerLoginBtn');
-            if (state.user) {
-                label.textContent = state.user.name.split(' ')[0];
-                footerBtn.textContent = 'Mi cuenta (' + state.user.name.split(' ')[0] + ')';
-            } else {
-                label.textContent = 'Iniciar Sesión';
-                footerBtn.textContent = 'Iniciar sesion';
-            }
-        }
-
-        /* =====================================================
-           FAVORITOS
-           ===================================================== */
-        function toggleFavorite(id) {
-            const btn = document.getElementById('fav-' + id);
-            if (state.favorites.has(id)) {
-                state.favorites.delete(id);
-                btn.classList.remove('active');
-                mostrarToast('Eliminado de favoritos.');
-            } else {
-                state.favorites.add(id);
-                btn.classList.add('active');
-                mostrarToast('Agregado a favoritos.');
-            }
-            actualizarBadges();
-        }
-
-        function abrirFavoritos() {
-            const list = document.getElementById('favList');
-            const favProducts = products.filter(p => state.favorites.has(p.id));
-
-            if (favProducts.length === 0) {
-                list.innerHTML = `
-                    <div class="list-empty">
-                        <i class="fa-regular fa-heart"></i>
-                        Todavía no agregaste productos a tus favoritos.
-                    </div>`;
-            } else {
-                list.innerHTML = favProducts.map(p => `
-                    <div class="mini-item">
-                        <div class="mini-item-icon"><img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:contain;border-radius:10px;"></div>
-                        <div class="mini-item-info">
-                            <h5>${p.title}</h5>
-                            <p>$${p.priceCurrent.toFixed(2)}</p>
-                        </div>
-                        <div class="mini-item-actions">
-                            <button class="qty-btn" title="Agregar al carrito" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i></button>
-                            <button class="remove-btn" title="Quitar de favoritos" onclick="toggleFavorite('${p.id}'); abrirFavoritos();"><i class="fa-solid fa-trash"></i></button>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            abrirModal('favModal');
-        }
-
-        /* =====================================================
-           CARRITO
-           ===================================================== */
-        function addToCart(id) {
-            state.cart[id] = (state.cart[id] || 0) + 1;
-            actualizarBadges();
-
-            const btn = document.getElementById('cartbtn-' + id);
-            if (btn) {
-                btn.classList.add('added');
-                btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-                setTimeout(() => {
-                    btn.classList.remove('added');
-                    btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
-                }, 900);
-            }
-            const product = products.find(p => p.id === id);
-            mostrarToast('"' + product.title + '" agregado al carrito.');
-        }
-
-        function cambiarCantidad(id, delta) {
-            if (!state.cart[id]) return;
-            state.cart[id] += delta;
-            if (state.cart[id] <= 0) delete state.cart[id];
-            actualizarBadges();
-            abrirCarrito();
-        }
-
-        function quitarDelCarrito(id) {
-            delete state.cart[id];
-            actualizarBadges();
-            abrirCarrito();
-        }
-
-        function calcularTotalCarrito() {
-            return Object.entries(state.cart).reduce((total, [id, qty]) => {
-                const product = products.find(p => p.id === id);
-                return total + (product ? product.priceCurrent * qty : 0);
-            }, 0);
-        }
-
-        function abrirCarrito() {
-            const list = document.getElementById('cartList');
-            const totalWrap = document.getElementById('cartTotalWrap');
-            const entries = Object.entries(state.cart);
-
-            if (entries.length === 0) {
-                list.innerHTML = `
-                    <div class="list-empty">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        Tu carrito está vacío. ¡Agrega productos para comenzar!
-                    </div>`;
-                totalWrap.style.display = 'none';
-            } else {
-                list.innerHTML = entries.map(([id, qty]) => {
-                    const p = products.find(prod => prod.id === id);
-                    return `
-                    <div class="mini-item">
-                        <div class="mini-item-icon"><img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:contain;border-radius:10px;"></div>
-                        <div class="mini-item-info">
-                            <h5>${p.title}</h5>
-                            <p>$${p.priceCurrent.toFixed(2)} c/u</p>
-                        </div>
-                        <div class="mini-item-actions">
-                            <button class="qty-btn" onclick="cambiarCantidad('${id}', -1)">−</button>
-                            <span class="qty-value">${qty}</span>
-                            <button class="qty-btn" onclick="cambiarCantidad('${id}', 1)">+</button>
-                            <button class="remove-btn" onclick="quitarDelCarrito('${id}')"><i class="fa-solid fa-trash"></i></button>
-                        </div>
-                    </div>`;
-                }).join('');
-                document.getElementById('cartTotalValue').textContent = '$' + calcularTotalCarrito().toFixed(2);
-                totalWrap.style.display = 'block';
-            }
-            abrirModal('cartModal');
-        }
-
-        function actualizarBadges() {
-            const favCount = state.favorites.size;
-            const favBadge = document.getElementById('favBadge');
-            favBadge.textContent = favCount;
-            favBadge.style.display = favCount > 0 ? 'flex' : 'none';
-
-            const cartCount = Object.values(state.cart).reduce((a, b) => a + b, 0);
-            const cartBadge = document.getElementById('cartBadge');
-            cartBadge.textContent = cartCount;
-            cartBadge.style.display = cartCount > 0 ? 'flex' : 'none';
-        }
-
-        /* =====================================================
-           SIMULACIÓN DE COMPRA (CHECKOUT)
-           ===================================================== */
-        function irACheckout() {
-            const entries = Object.entries(state.cart);
-            if (entries.length === 0) return;
-
-            if (!state.user) {
-                cerrarModal('cartModal');
-                mostrarToast('Inicia sesión para finalizar tu compra.');
-                cambiarModoLogin(false);
-                abrirModal('loginModal');
-                return;
-            }
-
-            const count = entries.reduce((a, [, qty]) => a + qty, 0);
-            document.getElementById('checkoutCount').textContent = count;
-            document.getElementById('checkoutTotal').textContent = '$' + calcularTotalCarrito().toFixed(2);
-            cerrarModal('cartModal');
-            abrirModal('checkoutModal');
-        }
-
-        function confirmarCompra() {
-            const total = calcularTotalCarrito();
-            const orderId = Math.floor(100000 + Math.random() * 900000);
-            const items = Object.entries(state.cart).map(([id, qty]) => {
-                const p = products.find(prod => prod.id === id);
-                return { title: p.title, qty, price: p.priceCurrent };
-            });
-
-            state.orders.unshift({
-                id: orderId,
-                date: new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }),
-                total,
-                items,
-                status: 'Confirmado'
-            });
-
-            state.cart = {};
-            actualizarBadges();
-
-            cerrarModal('checkoutModal');
-            document.getElementById('orderNumberText').textContent = 'Pedido #' + orderId;
-            abrirModal('successModal');
-        }
-
-        /* =====================================================
-           MIS PEDIDOS
-           ===================================================== */
-        function verPedidos() {
-            if (!state.user) {
-                mostrarToast('Inicia sesión para ver tus pedidos.');
-                cambiarModoLogin(false);
-                abrirModal('loginModal');
-                return;
-            }
-            const list = document.getElementById('ordersList');
-            if (state.orders.length === 0) {
-                list.innerHTML = `
-                    <div class="list-empty">
-                        <i class="fa-solid fa-receipt"></i>
-                        Todavía no tienes pedidos. ¡Explora nuestras ofertas!
-                    </div>`;
-            } else {
-                list.innerHTML = state.orders.map(order => `
-                    <div class="mini-item" style="align-items:flex-start;">
-                        <div class="mini-item-icon"><i class="fa-solid fa-box"></i></div>
-                        <div class="mini-item-info">
-                            <h5>Pedido #${order.id} · ${order.status}</h5>
-                            <p>${order.date} · ${order.items.reduce((a, it) => a + it.qty, 0)} producto(s)</p>
-                            <p style="color: var(--text-dark); font-weight:700; margin-top:4px;">$${order.total.toFixed(2)}</p>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            abrirModal('ordersModal');
-        }
-
-        /* =====================================================
-           INICIALIZACIÓN
-           ===================================================== */
-        renderProducts();
-        actualizarUI();
-        actualizarBadges();
     </script>
 
 </body>
