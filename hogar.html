@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* --- VARIABLES DE COLOR Y ESTILOS GLOBALES --- */
         :root {
@@ -23,6 +23,7 @@
             --star-yellow: #F59E0B;
             --card-border: #E2E8F0;
             --footer-bg: #F0F7FF;
+            --success-green: #059669;
         }
 
         * {
@@ -37,6 +38,10 @@
             color: var(--text-dark);
             display: flex;
             justify-content: center;
+        }
+
+        button {
+            font-family: 'Inter', sans-serif;
         }
 
         .layout-container {
@@ -108,10 +113,30 @@
             color: var(--text-dark);
             text-decoration: none;
             gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
         }
 
         .action-item i {
             font-size: 18px;
+        }
+
+        .badge-count {
+            position: absolute;
+            top: -6px;
+            right: -2px;
+            background-color: var(--discount-red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Nav Categorías */
@@ -241,9 +266,19 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .feature-item:hover {
+            color: var(--primary-blue);
         }
 
-        /* --- GRID DE PRODUCTOS DE HOGAR (2 FILAS X 3 COLS) --- */
+        /* --- GRID DE PRODUCTOS DE HOGAR --- */
         .products-section {
             margin: 0 40px 50px 40px;
         }
@@ -264,13 +299,39 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 220px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .favorite-toggle {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 5;
+            background: white;
+            border: 1px solid var(--card-border);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 13px;
+            transition: transform 0.15s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .favorite-toggle:hover {
+            transform: scale(1.08);
+        }
+        .favorite-toggle.active {
+            color: var(--discount-red);
+            border-color: var(--discount-red);
         }
 
         .product-img-container {
@@ -285,6 +346,78 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+        }
+
+        .product-info {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E293B;
+            margin-bottom: 8px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .current-price {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0F172A;
+        }
+
+        .old-price {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .stars {
+            color: var(--star-yellow);
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .btn-cart {
+            border: 1px solid var(--card-border);
+            background: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: background-color 0.2s;
+        }
+
+        .btn-cart:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .btn-cart.added {
+            background-color: var(--success-green);
+            color: white;
+            border-color: var(--success-green);
         }
 
         /* --- FOOTER --- */
@@ -310,6 +443,18 @@
             color: var(--text-dark);
             font-size: 16px;
             text-decoration: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .social-icons a:hover {
+            background-color: var(--primary-blue);
+            color: white;
         }
 
         .footer-column h5 {
@@ -327,71 +472,381 @@
             margin-bottom: 8px;
         }
 
-        .footer-column ul li a {
+        .footer-column ul li a,
+        .footer-column ul li button {
             text-decoration: none;
             color: var(--text-muted);
             font-size: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
         }
 
-        .footer-column ul li a:hover {
+        .footer-column ul li a:hover,
+        .footer-column ul li button:hover {
             color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        /* ================= MODALES ================= */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: translateY(-30px);
+            transition: transform 0.3s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-box.modal-wide {
+            max-width: 520px;
+            text-align: left;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .modal-close-btn:hover {
+            color: var(--text-dark);
+        }
+
+        .modal-box p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .modal-icon-top {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .modal-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .modal-btn:hover {
+            background-color: #1a4099;
+        }
+
+        .modal-btn.secondary {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--card-border);
+            margin-top: 10px;
+        }
+        .modal-btn.secondary:hover {
+            background-color: #F1F5F9;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-muted);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            font-size: 14px;
+            outline: none;
+        }
+        .form-group input:focus {
+            border-color: var(--primary-blue);
+        }
+        .form-error {
+            color: var(--discount-red);
+            font-size: 13px;
+            font-weight: 600;
+            margin: -10px 0 12px;
+            display: none;
+        }
+        .form-switch {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+        .form-switch a {
+            color: var(--primary-blue);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .list-empty {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 30px 10px;
+        }
+        .list-empty i {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--card-border);
+        }
+
+        .mini-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .mini-item:last-child {
+            border-bottom: none;
+        }
+        .mini-item-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 10px;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .mini-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .mini-item-info h5 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .mini-item-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin: 0;
+        }
+        .mini-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .qty-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid var(--card-border);
+            background: white;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qty-value {
+            font-size: 13px;
+            font-weight: 700;
+            min-width: 16px;
+            text-align: center;
+        }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--discount-red);
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 4px;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            font-weight: 800;
+            font-size: 17px;
+            border-top: 2px solid var(--text-dark);
+            margin-top: 5px;
+        }
+
+        .order-success-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #D1FAE5;
+            color: var(--success-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin: 0 auto 15px;
+        }
+        .order-number {
+            background: #F1F5F9;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary-blue);
+            margin: 10px 0 20px;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--text-dark);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        #toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        #toast i {
+            color: #34D399;
         }
     </style>
 </head>
 <body>
 
     <div class="layout-container">
-        
+
         <header>
             <div class="header-top">
                 <a href="index.html" class="logo">
                     <i class="fa-solid fa-cloud" style="color: #38BDF8;"></i> novaAIR
                 </a>
-                
+
                 <div class="search-bar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Buscar productos, categorías o marcas">
                 </div>
 
                 <div class="header-actions">
-                    <a href="#" class="action-item">
+                    <button class="action-item" onclick="onUserIconClick()">
                         <i class="fa-regular fa-user"></i>
-                        <span>Iniciar sesión</span>
-                    </a>
-                    <a href="#" class="action-item">
+                        <span id="userLabel">Iniciar sesión</span>
+                    </button>
+                    <button class="action-item" onclick="abrirFavoritos()">
                         <i class="fa-regular fa-heart"></i>
                         <span>Favoritos</span>
-                    </a>
-                    <a href="#" class="action-item">
+                        <span class="badge-count" id="favBadge">0</span>
+                    </button>
+                    <button class="action-item" onclick="abrirCarrito()">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span>Carrito</span>
-                    </a>
+                        <span class="badge-count" id="cartBadge">0</span>
+                    </button>
                 </div>
             </div>
 
             <nav>
-    <div class="dropdown-container">
-        <button class="btn-categories">
-            <i class="fa-solid fa-bars"></i> Categorías <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
-        </button>
-        <div class="dropdown-menu">
-            
-        </div>
-    </div>
+                <div class="dropdown-container">
+                    <button class="btn-categories">
+                        <i class="fa-solid fa-bars"></i> Categorías <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </button>
+                    <div class="dropdown-menu"></div>
+                </div>
 
-    <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
-        <li><a href="mas-vendidos.html">Más vendidos</a></li>
-        <li><a href="hogar.html" class="active">Hogar</a></li>
-        <li><a href="tecnologia.html">Tecnología</a></li>
-    </ul>
-</nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><a href="mas-vendidos.html">Más vendidos</a></li>
+                    <li><a href="hogar.html" class="active">Hogar</a></li>
+                    <li><a href="tecnologia.html">Tecnología</a></li>
+                </ul>
+            </nav>
         </header>
 
         <section class="hero-banner">
             <div class="hero-content">
-                <a href="#" class="btn-cta">comprar ahora <i class="fa-solid fa-arrow-right"></i></a>
+                <button class="btn-cta" onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">comprar ahora <i class="fa-solid fa-arrow-right"></i></button>
             </div>
 
             <img src="https://via.placeholder.com/280x160?text=Sofa+Azul" alt="Sofá azul de hogar" class="banner-center-img">
@@ -404,50 +859,14 @@
         </section>
 
         <div class="hero-features">
-            <div class="feature-item"><i class="fa-solid fa-truck"></i> Envíos rápidos</div>
-            <div class="feature-item"><i class="fa-solid fa-shield-halved"></i> Pagos 100% seguros</div>
-            <div class="feature-item"><i class="fa-solid fa-rotate-left"></i> Cambios sin complicaciones</div>
+            <button class="feature-item" onclick="mostrarInfo('fa-solid fa-truck', 'Envíos rápidos', 'Realizamos envíos a todo el país en 24/48 horas. El costo de envío se calcula automáticamente al finalizar tu compra.')"><i class="fa-solid fa-truck"></i> Envíos rápidos</button>
+            <button class="feature-item" onclick="mostrarInfo('fa-solid fa-shield-halved', 'Pagos 100% seguros', 'Utilizamos tecnología de encriptación avanzada. Tus datos y tu dinero están totalmente protegidos en cada transacción.')"><i class="fa-solid fa-shield-halved"></i> Pagos 100% seguros</button>
+            <button class="feature-item" onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios sin complicaciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar un cambio o devolución sin costo adicional ni papeleos.')"><i class="fa-solid fa-rotate-left"></i> Cambios sin complicaciones</button>
         </div>
 
         <section class="products-section">
-            <div class="product-grid">
-                
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://via.placeholder.com/160x140?text=Sofa" alt="Sofá gris" class="product-img">
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://via.placeholder.com/160x140?text=Sarten" alt="Sartén antiadherente" class="product-img">
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://via.placeholder.com/160x140?text=Organizadores" alt="Cajas de almacenamiento" class="product-img">
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://via.placeholder.com/160x140?text=Ropa+de+Cama" alt="Juego de sabanas" class="product-img">
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://via.placeholder.com/160x140?text=Cortinas" alt="Cortinas verdes" class="product-img">
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img-container">
-                        <img src="https://via.placeholder.com/160x140?text=Licuadora" alt="Licuadora" class="product-img">
-                    </div>
-                </div>
-
+            <div class="product-grid" id="productGrid">
+                <!-- Los productos se generan dinámicamente con JavaScript -->
             </div>
         </section>
 
@@ -458,20 +877,20 @@
                         <i class="fa-solid fa-cloud" style="color: #38BDF8;"></i> novaAIR
                     </a>
                     <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-column">
                     <h5>Compra</h5>
                     <ul>
-                        <li><a href="#">Todas las categorías</a></li>
+                        <li><button onclick="document.querySelector('.btn-categories').click()">Todas las categorías</button></li>
                         <li><a href="ofertas.html">Ofertas</a></li>
-                        <li><a href="#">Novedades</a></li>
-                        <li><a href="#">Marcas</a></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-sparkles', 'Novedades', 'Todas las semanas sumamos productos nuevos a nuestro catálogo. ¡Vuelve pronto para verlos primero!')">Novedades</button></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-copyright', 'Marcas', 'Trabajamos únicamente con marcas originales y proveedores verificados para garantizar la calidad de cada producto.')">Marcas</button></li>
                         <li><a href="mas-vendidos.html">Más vendidos</a></li>
                     </ul>
                 </div>
@@ -479,25 +898,578 @@
                 <div class="footer-column">
                     <h5>Ayuda</h5>
                     <ul>
-                        <li><a href="#">Envíos</a></li>
-                        <li><a href="#">Pagos</a></li>
-                        <li><a href="#">Cambios y devoluciones</a></li>
-                        <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-truck', 'Envíos', 'Realizamos envíos a todo el país en 24/48 horas. El costo de envío se calcula automáticamente al finalizar tu compra según tu ubicación.')">Envíos</button></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega. Todas las transacciones están protegidas con encriptación de extremo a extremo.')">Pagos</button></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar un cambio o devolución sin costo adicional.')">Cambios y devoluciones</button></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas sobre tu pedido, pagos o envíos? Visita nuestro centro de ayuda o escríbenos y te responderemos en menos de 24 horas.')">Preguntas frecuentes</button></li>
+                        <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com o al chat en línea, disponible de lunes a sábado de 8:00 a.m. a 6:00 p.m.')">Contacto</button></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h5>Mi Cuenta</h5>
                     <ul>
-                        <li><a href="#">Iniciar sesión</a></li>
-                        <li><a href="#">Mis pedidos</a></li>
+                        <li><button onclick="onUserIconClick()" id="footerLoginBtn">Iniciar sesión</button></li>
+                        <li><button onclick="verPedidos()">Mis pedidos</button></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-bottom">© 2026 novaAIR. Todos los derechos reservados.</div>
         </footer>
 
     </div>
+
+    <!-- ============ MODAL GENÉRICO DE INFORMACIÓN ============ -->
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span>
+            <i id="infoModalIcon" class="modal-icon-top fa-solid fa-circle-info"></i>
+            <h3 id="infoModalTitle" class="modal-title">Información</h3>
+            <p id="infoModalText">Este es un mensaje de prueba.</p>
+            <button class="modal-btn" onclick="cerrarModal('infoModal')">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE LOGIN / REGISTRO ============ -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="modal-close-btn" onclick="cerrarModal('loginModal')">&times;</span>
+            <i class="fa-regular fa-circle-user modal-icon-top"></i>
+            <h3 class="modal-title" id="loginModalTitle">Iniciar sesión</h3>
+
+            <div id="loginFields">
+                <div class="form-group" id="nameFieldGroup" style="display:none;">
+                    <label>Nombre</label>
+                    <input type="text" id="regName" placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••">
+                </div>
+                <p class="form-error" id="loginError">Completa todos los campos para continuar.</p>
+                <button class="modal-btn" id="loginSubmitBtn" onclick="procesarLogin()">Iniciar sesión</button>
+            </div>
+
+            <p class="form-switch">
+                <span id="switchLoginText">¿No tienes cuenta? <a onclick="cambiarModoLogin(true)">Regístrate</a></span>
+                <span id="switchRegisterText" style="display:none;">¿Ya tienes cuenta? <a onclick="cambiarModoLogin(false)">Inicia sesión</a></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE SESIÓN ACTIVA ============ -->
+    <div id="accountModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="modal-close-btn" onclick="cerrarModal('accountModal')">&times;</span>
+            <i class="fa-regular fa-circle-user modal-icon-top"></i>
+            <h3 class="modal-title">¡Hola, <span id="accountUserName">Usuario</span>!</h3>
+            <p>Sesión iniciada correctamente. Desde aquí puedes revisar tus pedidos o cerrar tu sesión.</p>
+            <button class="modal-btn" onclick="cerrarModal('accountModal'); verPedidos();">Ver mis pedidos</button>
+            <button class="modal-btn secondary" onclick="cerrarSesion()">Cerrar sesión</button>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE FAVORITOS ============ -->
+    <div id="favModal" class="modal-overlay">
+        <div class="modal-box modal-wide">
+            <span class="modal-close-btn" onclick="cerrarModal('favModal')">&times;</span>
+            <h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-heart" style="color:var(--discount-red);"></i> Tus favoritos</h3>
+            <div id="favList"></div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE CARRITO ============ -->
+    <div id="cartModal" class="modal-overlay">
+        <div class="modal-box modal-wide">
+            <span class="modal-close-btn" onclick="cerrarModal('cartModal')">&times;</span>
+            <h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-cart-shopping"></i> Tu carrito</h3>
+            <div id="cartList"></div>
+            <div id="cartTotalWrap" style="display:none;">
+                <div class="cart-total-row">
+                    <span>Total</span>
+                    <span id="cartTotalValue">$0.00</span>
+                </div>
+                <button class="modal-btn" onclick="irACheckout()">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE CONFIRMACIÓN DE COMPRA ============ -->
+    <div id="checkoutModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="modal-close-btn" onclick="cerrarModal('checkoutModal')">&times;</span>
+            <i class="fa-solid fa-box-open modal-icon-top"></i>
+            <h3 class="modal-title">Confirmar pedido</h3>
+            <p>Estás a punto de comprar <strong id="checkoutCount">0</strong> producto(s) por un total de <strong id="checkoutTotal">$0.00</strong>. Se simulará el pago con tu método guardado.</p>
+            <button class="modal-btn" onclick="confirmarCompra()">Confirmar y pagar</button>
+            <button class="modal-btn secondary" onclick="cerrarModal('checkoutModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE ÉXITO DE COMPRA ============ -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="modal-close-btn" onclick="cerrarModal('successModal')">&times;</span>
+            <div class="order-success-icon"><i class="fa-solid fa-check"></i></div>
+            <h3 class="modal-title">¡Compra realizada!</h3>
+            <p>Gracias por tu compra. Te enviamos la confirmación a tu correo y comenzaremos a preparar tu pedido.</p>
+            <div class="order-number" id="orderNumberText">Pedido #000000</div>
+            <button class="modal-btn" onclick="cerrarModal('successModal')">Seguir comprando</button>
+        </div>
+    </div>
+
+    <!-- ============ MODAL DE MIS PEDIDOS ============ -->
+    <div id="ordersModal" class="modal-overlay">
+        <div class="modal-box modal-wide">
+            <span class="modal-close-btn" onclick="cerrarModal('ordersModal')">&times;</span>
+            <h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-receipt"></i> Mis pedidos</h3>
+            <div id="ordersList"></div>
+        </div>
+    </div>
+
+    <!-- Notificación tipo toast -->
+    <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
+
+    <!-- SCRIPT PRINCIPAL -->
+    <script>
+        /* =====================================================
+           ESTADO DE LA APLICACIÓN (en memoria, se reinicia al recargar)
+           ===================================================== */
+        const state = {
+            user: null,
+            favorites: new Set(),
+            cart: {},
+            orders: [],
+            registeredUser: null,
+            loginMode: 'login'
+        };
+
+        /* Catálogo de productos (se mantienen las rutas de imagen originales) */
+        const products = [
+            {
+                id: 'p1',
+                title: 'Sofá gris de 2 plazas',
+                image: 'https://via.placeholder.com/160x140?text=Sofa',
+                priceCurrent: 189.00,
+                priceOld: 249.00,
+                stars: 5
+            },
+            {
+                id: 'p2',
+                title: 'Sartén antiadherente 28cm',
+                image: 'https://via.placeholder.com/160x140?text=Sarten',
+                priceCurrent: 14.50,
+                priceOld: 19.00,
+                stars: 5
+            },
+            {
+                id: 'p3',
+                title: 'Set de cajas organizadoras',
+                image: 'https://via.placeholder.com/160x140?text=Organizadores',
+                priceCurrent: 12.00,
+                priceOld: 16.00,
+                stars: 4
+            },
+            {
+                id: 'p4',
+                title: 'Juego de sábanas queen',
+                image: 'https://via.placeholder.com/160x140?text=Ropa+de+Cama',
+                priceCurrent: 22.00,
+                priceOld: 30.00,
+                stars: 5
+            },
+            {
+                id: 'p5',
+                title: 'Cortinas verdes blackout',
+                image: 'https://via.placeholder.com/160x140?text=Cortinas',
+                priceCurrent: 18.00,
+                priceOld: 24.00,
+                stars: 4
+            },
+            {
+                id: 'p6',
+                title: 'Licuadora 3 velocidades',
+                image: 'https://via.placeholder.com/160x140?text=Licuadora',
+                priceCurrent: 27.00,
+                priceOld: 35.00,
+                stars: 5
+            }
+        ];
+
+        /* =====================================================
+           RENDER DE PRODUCTOS
+           ===================================================== */
+        function renderStars(count) {
+            let html = '';
+            for (let i = 0; i < 5; i++) {
+                html += i < count ? '★' : '☆';
+            }
+            return html;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <button class="favorite-toggle ${state.favorites.has(p.id) ? 'active' : ''}" id="fav-${p.id}" onclick="toggleFavorite('${p.id}')" title="Agregar a favoritos">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <div class="product-img-container">
+                        <img src="${p.image}" alt="${p.title}" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${p.title}</h3>
+                        <div class="price-container">
+                            <span class="current-price">$${p.priceCurrent.toFixed(2)}</span>
+                            <span class="old-price">$${p.priceOld.toFixed(2)}</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="stars">${renderStars(p.stars)}</div>
+                            <button class="btn-cart" id="cartbtn-${p.id}" onclick="addToCart('${p.id}')" title="Agregar al carrito">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* =====================================================
+           UTILIDADES: MODALES Y TOAST
+           ===================================================== */
+        function abrirModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+        function cerrarModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+        function mostrarInfo(icono, titulo, texto) {
+            document.getElementById('infoModalIcon').className = 'modal-icon-top ' + icono;
+            document.getElementById('infoModalTitle').textContent = titulo;
+            document.getElementById('infoModalText').textContent = texto;
+            abrirModal('infoModal');
+        }
+        let toastTimer = null;
+        function mostrarToast(texto) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastText').textContent = texto;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) overlay.classList.remove('active');
+            });
+        });
+
+        /* =====================================================
+           LOGIN / SESIÓN
+           ===================================================== */
+        function onUserIconClick() {
+            if (state.user) {
+                document.getElementById('accountUserName').textContent = state.user.name;
+                abrirModal('accountModal');
+            } else {
+                cambiarModoLogin(false);
+                abrirModal('loginModal');
+            }
+        }
+
+        function cambiarModoLogin(esRegistro) {
+            state.loginMode = esRegistro ? 'register' : 'login';
+            document.getElementById('nameFieldGroup').style.display = esRegistro ? 'block' : 'none';
+            document.getElementById('loginModalTitle').textContent = esRegistro ? 'Crear cuenta' : 'Iniciar sesión';
+            document.getElementById('loginSubmitBtn').textContent = esRegistro ? 'Crear cuenta' : 'Iniciar sesión';
+            document.getElementById('switchLoginText').style.display = esRegistro ? 'none' : 'inline';
+            document.getElementById('switchRegisterText').style.display = esRegistro ? 'inline' : 'none';
+            document.getElementById('loginError').style.display = 'none';
+        }
+
+        function procesarLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const errorEl = document.getElementById('loginError');
+
+            if (state.loginMode === 'register') {
+                const name = document.getElementById('regName').value.trim();
+                if (!name || !email || !password) {
+                    errorEl.textContent = 'Completa todos los campos para continuar.';
+                    errorEl.style.display = 'block';
+                    return;
+                }
+                state.registeredUser = { name, email, password };
+                state.user = { name, email };
+                mostrarToast('Cuenta creada. ¡Bienvenido/a, ' + name + '!');
+            } else {
+                if (!email || !password) {
+                    errorEl.textContent = 'Ingresa tu correo y contraseña.';
+                    errorEl.style.display = 'block';
+                    return;
+                }
+                if (state.registeredUser && state.registeredUser.email === email && state.registeredUser.password !== password) {
+                    errorEl.textContent = 'Contraseña incorrecta. Intenta de nuevo.';
+                    errorEl.style.display = 'block';
+                    return;
+                }
+                const name = (state.registeredUser && state.registeredUser.email === email)
+                    ? state.registeredUser.name
+                    : email.split('@')[0];
+                state.user = { name, email };
+                mostrarToast('¡Bienvenido/a de nuevo, ' + name + '!');
+            }
+
+            errorEl.style.display = 'none';
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('regName').value = '';
+            actualizarUI();
+            cerrarModal('loginModal');
+        }
+
+        function cerrarSesion() {
+            state.user = null;
+            cerrarModal('accountModal');
+            actualizarUI();
+            mostrarToast('Sesión cerrada correctamente.');
+        }
+
+        function actualizarUI() {
+            const label = document.getElementById('userLabel');
+            const footerBtn = document.getElementById('footerLoginBtn');
+            if (state.user) {
+                label.textContent = state.user.name.split(' ')[0];
+                footerBtn.textContent = 'Mi cuenta (' + state.user.name.split(' ')[0] + ')';
+            } else {
+                label.textContent = 'Iniciar sesión';
+                footerBtn.textContent = 'Iniciar sesión';
+            }
+        }
+
+        /* =====================================================
+           FAVORITOS
+           ===================================================== */
+        function toggleFavorite(id) {
+            const btn = document.getElementById('fav-' + id);
+            if (state.favorites.has(id)) {
+                state.favorites.delete(id);
+                if (btn) btn.classList.remove('active');
+                mostrarToast('Eliminado de favoritos.');
+            } else {
+                state.favorites.add(id);
+                if (btn) btn.classList.add('active');
+                mostrarToast('Agregado a favoritos.');
+            }
+            actualizarBadges();
+        }
+
+        function abrirFavoritos() {
+            const list = document.getElementById('favList');
+            const favProducts = products.filter(p => state.favorites.has(p.id));
+
+            if (favProducts.length === 0) {
+                list.innerHTML = `
+                    <div class="list-empty">
+                        <i class="fa-regular fa-heart"></i>
+                        Todavía no agregaste productos a tus favoritos.
+                    </div>`;
+            } else {
+                list.innerHTML = favProducts.map(p => `
+                    <div class="mini-item">
+                        <div class="mini-item-icon"><img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:contain;"></div>
+                        <div class="mini-item-info">
+                            <h5>${p.title}</h5>
+                            <p>$${p.priceCurrent.toFixed(2)}</p>
+                        </div>
+                        <div class="mini-item-actions">
+                            <button class="qty-btn" title="Agregar al carrito" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="remove-btn" title="Quitar de favoritos" onclick="toggleFavorite('${p.id}'); abrirFavoritos();"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            abrirModal('favModal');
+        }
+
+        /* =====================================================
+           CARRITO
+           ===================================================== */
+        function addToCart(id) {
+            state.cart[id] = (state.cart[id] || 0) + 1;
+            actualizarBadges();
+
+            const btn = document.getElementById('cartbtn-' + id);
+            if (btn) {
+                btn.classList.add('added');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+                setTimeout(() => {
+                    btn.classList.remove('added');
+                    btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+                }, 900);
+            }
+            const product = products.find(p => p.id === id);
+            mostrarToast('"' + product.title + '" agregado al carrito.');
+        }
+
+        function cambiarCantidad(id, delta) {
+            if (!state.cart[id]) return;
+            state.cart[id] += delta;
+            if (state.cart[id] <= 0) delete state.cart[id];
+            actualizarBadges();
+            abrirCarrito();
+        }
+
+        function quitarDelCarrito(id) {
+            delete state.cart[id];
+            actualizarBadges();
+            abrirCarrito();
+        }
+
+        function calcularTotalCarrito() {
+            return Object.entries(state.cart).reduce((total, [id, qty]) => {
+                const product = products.find(p => p.id === id);
+                return total + (product ? product.priceCurrent * qty : 0);
+            }, 0);
+        }
+
+        function abrirCarrito() {
+            const list = document.getElementById('cartList');
+            const totalWrap = document.getElementById('cartTotalWrap');
+            const entries = Object.entries(state.cart);
+
+            if (entries.length === 0) {
+                list.innerHTML = `
+                    <div class="list-empty">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Tu carrito está vacío. ¡Agrega productos para comenzar!
+                    </div>`;
+                totalWrap.style.display = 'none';
+            } else {
+                list.innerHTML = entries.map(([id, qty]) => {
+                    const p = products.find(prod => prod.id === id);
+                    return `
+                    <div class="mini-item">
+                        <div class="mini-item-icon"><img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:contain;"></div>
+                        <div class="mini-item-info">
+                            <h5>${p.title}</h5>
+                            <p>$${p.priceCurrent.toFixed(2)} c/u</p>
+                        </div>
+                        <div class="mini-item-actions">
+                            <button class="qty-btn" onclick="cambiarCantidad('${id}', -1)">−</button>
+                            <span class="qty-value">${qty}</span>
+                            <button class="qty-btn" onclick="cambiarCantidad('${id}', 1)">+</button>
+                            <button class="remove-btn" onclick="quitarDelCarrito('${id}')"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>`;
+                }).join('');
+                document.getElementById('cartTotalValue').textContent = '$' + calcularTotalCarrito().toFixed(2);
+                totalWrap.style.display = 'block';
+            }
+            abrirModal('cartModal');
+        }
+
+        function actualizarBadges() {
+            const favCount = state.favorites.size;
+            const favBadge = document.getElementById('favBadge');
+            favBadge.textContent = favCount;
+            favBadge.style.display = favCount > 0 ? 'flex' : 'none';
+
+            const cartCount = Object.values(state.cart).reduce((a, b) => a + b, 0);
+            const cartBadge = document.getElementById('cartBadge');
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? 'flex' : 'none';
+        }
+
+        /* =====================================================
+           SIMULACIÓN DE COMPRA (CHECKOUT)
+           ===================================================== */
+        function irACheckout() {
+            const entries = Object.entries(state.cart);
+            if (entries.length === 0) return;
+
+            if (!state.user) {
+                cerrarModal('cartModal');
+                mostrarToast('Inicia sesión para finalizar tu compra.');
+                cambiarModoLogin(false);
+                abrirModal('loginModal');
+                return;
+            }
+
+            const count = entries.reduce((a, [, qty]) => a + qty, 0);
+            document.getElementById('checkoutCount').textContent = count;
+            document.getElementById('checkoutTotal').textContent = '$' + calcularTotalCarrito().toFixed(2);
+            cerrarModal('cartModal');
+            abrirModal('checkoutModal');
+        }
+
+        function confirmarCompra() {
+            const total = calcularTotalCarrito();
+            const orderId = Math.floor(100000 + Math.random() * 900000);
+            const items = Object.entries(state.cart).map(([id, qty]) => {
+                const p = products.find(prod => prod.id === id);
+                return { title: p.title, qty, price: p.priceCurrent };
+            });
+
+            state.orders.unshift({
+                id: orderId,
+                date: new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }),
+                total,
+                items,
+                status: 'Confirmado'
+            });
+
+            state.cart = {};
+            actualizarBadges();
+
+            cerrarModal('checkoutModal');
+            document.getElementById('orderNumberText').textContent = 'Pedido #' + orderId;
+            abrirModal('successModal');
+        }
+
+        /* =====================================================
+           MIS PEDIDOS
+           ===================================================== */
+        function verPedidos() {
+            if (!state.user) {
+                mostrarToast('Inicia sesión para ver tus pedidos.');
+                cambiarModoLogin(false);
+                abrirModal('loginModal');
+                return;
+            }
+            const list = document.getElementById('ordersList');
+            if (state.orders.length === 0) {
+                list.innerHTML = `
+                    <div class="list-empty">
+                        <i class="fa-solid fa-receipt"></i>
+                        Todavía no tienes pedidos. ¡Explora nuestras ofertas!
+                    </div>`;
+            } else {
+                list.innerHTML = state.orders.map(order => `
+                    <div class="mini-item" style="align-items:flex-start;">
+                        <div class="mini-item-icon"><i class="fa-solid fa-box"></i></div>
+                        <div class="mini-item-info">
+                            <h5>Pedido #${order.id} · ${order.status}</h5>
+                            <p>${order.date} · ${order.items.reduce((a, it) => a + it.qty, 0)} producto(s)</p>
+                            <p style="color: var(--text-dark); font-weight:700; margin-top:4px;">$${order.total.toFixed(2)}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            abrirModal('ordersModal');
+        }
+
+        /* =====================================================
+           INICIALIZACIÓN
+           ===================================================== */
+        renderProducts();
+        actualizarUI();
+        actualizarBadges();
+    </script>
 
 </body>
 </html>
