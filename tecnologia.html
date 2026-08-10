@@ -7,8 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
     <style>
         /* --- VARIABLES DE COLOR Y ESTILOS GLOBALES --- */
         :root {
@@ -61,16 +60,27 @@
             margin-bottom: 15px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 800;
-            font-size: 22px;
-            color: var(--brand-blue);
-            text-decoration: none;
-        }
+       .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.logo h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: -5px;
+}
+
+.logo span {
+    color: var(--text-dark);
+}
+
+.logo p {
+    font-size: 10px;
+    color: var(--text-muted); 
+}
         .search-bar {
             flex: 1;
             max-width: 500px;
@@ -379,9 +389,13 @@
         
         <header>
             <div class="header-top">
-                <a href="index.html" class="logo">
-                    <i class="fa-solid fa-cloud" style="color: #38BDF8;"></i> novaAIR
-                </a>
+               <a href="index.html" class="logo" style="text-decoration:none;">
+    <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
+    <div>
+        <h1>nova<span>AIR</span></h1>
+        <p>todo lo que necesitas al mejor precio</p>
+    </div>
+</a>
                 
                 <div class="search-bar">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -487,9 +501,13 @@
         <footer>
             <div class="footer-grid">
                 <div>
-                    <a href="index.html" class="logo">
-                        <i class="fa-solid fa-cloud" style="color: #38BDF8;"></i> novaAIR
-                    </a>
+                   <a href="index.html" class="logo" style="text-decoration:none;">
+    <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
+    <div>
+        <h1>nova<span>AIR</span></h1>
+        <p>todo lo que necesitas al mejor precio</p>
+    </div>
+</a>
                     <div class="social-icons">
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>

@@ -7,8 +7,7 @@
     <!-- Fuente de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Iconos de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* ================= VARIABLES Y RESET ================= */
         :root {
@@ -88,37 +87,31 @@
             font-size: 10px;
             color: var(--text-gray);
         }
+/* --- ESTILOS DEL BUSCADOR UNIFICADO --- */
+.search-bar {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+}
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background-color: #C6E7FF;
-            border-radius: 30px;
-            padding: 5px 15px;
-            width: 400px;
-        }
+.search-bar input {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    border-radius: 20px;
+    border: 1px solid #CBD5E1;
+    background-color: #F1F5F9;
+    font-size: 14px;
+    outline: none;
+}
 
-        .search-icon-bg {
-            background-color: var(--primary-blue);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        .search-bar input {
-            border: none;
-            background: transparent;
-            outline: none;
-            width: 100%;
-            font-size: 14px;
-        }
-
+.search-bar i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray); 
+}
+       
         .user-actions {
             display: flex;
             gap: 30px;
@@ -992,8 +985,7 @@
         <div class="container footer-content">
             <div class="footer-col">
                 <div class="logo">
-                    <i class="fa-solid fa-bag-shopping" style="color: var(--primary-blue); font-size: 24px;"></i>
-                    <div>
+<img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">                    <div>
                         <h1>nova<span>AIR</span></h1>
                         <p>todo lo que necesitas al mejor precio</p>
                     </div>
