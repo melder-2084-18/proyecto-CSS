@@ -7,10 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-   
-
-        <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css/style.css">
 </head>
 <body>
 
@@ -19,13 +17,12 @@
         <header>
             <div class="header-top">
                 <div class="logo">
-                <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
-                <div>
-                    <h1>nova<span>AIR</span></h1>
-                    <p>todo lo que necesitas al mejor precio</p>
+                    <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
+                    <div>
+                        <h1>nova<span>AIR</span></h1>
+                        <p>todo lo que necesitas al mejor precio</p>
+                    </div>
                 </div>
-            </div>
-
 
                 <div class="search-bar">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -50,27 +47,39 @@
                 </div>
             </div>
 
-            <nav>
-                <div class="dropdown-container">
-                    <button class="btn-categories">
-                        <i class="fa-solid fa-bars"></i> Categorías <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
-                    </button>
-                    <div class="dropdown-menu"></div>
-                </div>
-
+            <nav class="navbar">
                 <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="ofertas.html">Ofertas</a></li>
-    <li><a href="mas-vendidos.html">Mas vendidos</a></li>
-    <li><a href="hogar.html">Hogar</a></li>
-    <li><a href="belleza.html">Belleza</a></li>
-    <li><a href="tecnologia.html">Tecnologia</a></li>
-</ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+                    <li><a href="hogar.html">Hogar</a></li>
+                    <li><a href="belleza.html">Belleza</a></li>
+                    <li><a href="tecnologia.html">Tecnologia</a></li>
+                </ul>
             </nav>
         </header>
 
+        <!-- SECCIÓN BANNER HERO -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2>Las mejores ofertas,<br><span>al mejor precio</span></h2>
+                <p>Aprovecha descuentos exclusivos en todas nuestras categorías.</p>
+                <button class="btn-cta" onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">
+                    Ver ofertas <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div class="hero-image-placeholder" style="background-image: url('../Assets/banner 1.png');"></div>
+
+            <div class="badge-discount">
+                <span>Ofertas</span>
+                <span>hasta el</span>
+                <strong>50%OFF</strong>
+            </div>
+        </section>
+
         <section class="offers-header">
-            <h1 class="offers-title">Ofertas</h1>
+            <h1 class="offers-title">Ofertas Especiales</h1>
             <p class="offers-subtitle">Descubre los mejores descuentos en miles de productos</p>
 
             <div class="filter-buttons" id="filterButtons">
@@ -86,11 +95,11 @@
             <div class="product-grid" id="productGrid">
                 <!-- Los productos se generan dinámicamente con JavaScript -->
             </div>
-       </section> <!-- Aquí termina tu sección de productos -->
+        </section>
 
-    </div> <!-- 1. ¡OJO! ESTE ES EL DIV QUE MUDAMOS AQUÍ PARA CERRAR EL CONTENEDOR ANTES DEL FOOTER -->
+    </div>
 
-    <!-- 2. FOOTER EXACTAMENTE IGUAL AL DEL INICIO -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
@@ -115,7 +124,6 @@
                         <img src="../Assets/x.png" alt="X" style="width: 20px; height: 20px; object-fit: contain;">
                     </a>
                 </div>
-                <!-- MÉTODOS DE PAGO (Solo en Hogar/Ofertas si quieres agregarlo, o déjalo así) -->
                 <div class="payment-methods">
                     <h5>MÉTODOS DE PAGO</h5>
                     <div class="payment-icons">
@@ -160,8 +168,8 @@
         <div class="footer-bottom">© 2026 novaAIR. Todos los derechos reservados.</div>
     </footer>
 
-    <!-- AQUÍ EMPIEZAN LOS MODALES Y SCRIPTS NORMALES -->
-    <div id="infoModal" class="modal-overlay"> ...
+    <!-- MODALES -->
+    <div id="infoModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span>
             <i id="infoModalIcon" class="modal-icon-top fa-solid fa-circle-info"></i>
@@ -171,7 +179,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE LOGIN / REGISTRO ============ -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('loginModal')">&times;</span>
@@ -202,7 +209,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE SESIÓN ACTIVA ============ -->
     <div id="accountModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('accountModal')">&times;</span>
@@ -214,7 +220,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE FAVORITOS ============ -->
     <div id="favModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('favModal')">&times;</span>
@@ -223,7 +228,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE CARRITO ============ -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('cartModal')">&times;</span>
@@ -239,7 +243,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE CONFIRMACIÓN DE COMPRA ============ -->
     <div id="checkoutModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('checkoutModal')">&times;</span>
@@ -251,7 +254,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE ÉXITO DE COMPRA ============ -->
     <div id="successModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('successModal')">&times;</span>
@@ -263,7 +265,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE MIS PEDIDOS ============ -->
     <div id="ordersModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('ordersModal')">&times;</span>
@@ -272,14 +273,10 @@
         </div>
     </div>
 
-    <!-- Notificación tipo toast -->
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
-<script src="JS/main.js"></script>
-    <!-- SCRIPT PRINCIPAL -->
+
+    <script src="../JS/main.js"></script>
     <script>
-        /* =====================================================
-           ESTADO DE LA APLICACIÓN (en memoria, se reinicia al recargar)
-           ===================================================== */
         const state = {
             user: null,
             favorites: new Set(),
@@ -290,13 +287,11 @@
             currentFilter: 'todo'
         };
 
-        /* Catálogo de productos (se mantienen las rutas de imagen originales) */
         const products = [
-            // ---------- MODA (6) ----------
             {
                 id: 'p1',
                 title: 'Buzo adidas Classic hombre',
-                image: "Assets/buzo adidas hombre.png",
+                image: "../Assets/buzo adidas hombre.png",
                 priceCurrent: 12.20,
                 priceOld: 15.00,
                 discount: '-40%',
@@ -306,7 +301,7 @@
             {
                 id: 'p3',
                 title: 'Mochila Urban',
-                image: "Assets/Mochila Urban.png",
+                image: "../Assets/Mochila Urban.png",
                 priceCurrent: 15.99,
                 priceOld: 22.00,
                 discount: '-30%',
@@ -316,7 +311,7 @@
             {
                 id: 'p5',
                 title: 'Bolso de cuero azul',
-                image: "Assets/Bolso producto.png",
+                image: "../Assets/Bolso producto.png",
                 priceCurrent: 59.00,
                 priceOld: 85.00,
                 discount: '-30%',
@@ -326,7 +321,7 @@
             {
                 id: 'p7',
                 title: 'Jeans slim fit hombre',
-                image: "Assets/Jeans slim fit hombre.png",
+                image: "../Assets/Jeans slim fit hombre.png",
                 priceCurrent: 22.50,
                 priceOld: 32.00,
                 discount: '-30%',
@@ -336,7 +331,7 @@
             {
                 id: 'p8',
                 title: 'Tenis deportivos urbanos',
-                image: "Assets/Tenis deportivos urbanos.png",
+                image: "../Assets/Tenis deportivos urbanos.png",
                 priceCurrent: 34.99,
                 priceOld: 49.99,
                 discount: '-30%',
@@ -346,19 +341,17 @@
             {
                 id: 'p9',
                 title: 'Chaqueta impermeable',
-                image: "Assets/Chaqueta impermeable.png",
+                image: "../Assets/Chaqueta impermeable.png",
                 priceCurrent: 44.00,
                 priceOld: 60.00,
                 discount: '-27%',
                 stars: 4,
                 category: 'moda'
             },
-
-            // ---------- BELLEZA (6) ----------
             {
                 id: 'p2',
                 title: 'Perfume Ocean 100ml',
-                image: "Assets/Perfume Ocean 100ml.png",
+                image: "../Assets/Perfume Ocean 100ml.png",
                 priceCurrent: 72.25,
                 priceOld: 99.00,
                 discount: '-35%',
@@ -368,7 +361,7 @@
             {
                 id: 'p10',
                 title: 'Crema facial hidratante',
-                image: "Assets/Crema facial hidratante.png",
+                image: "../Assets/Crema facial hidratante.png",
                 priceCurrent: 18.50,
                 priceOld: 25.00,
                 discount: '-26%',
@@ -378,7 +371,7 @@
             {
                 id: 'p11',
                 title: 'Labial mate larga duración',
-                image: "Assets/Labial mate larga duración.png",
+                image: "../Assets/Labial mate larga duración.png",
                 priceCurrent: 9.99,
                 priceOld: 14.00,
                 discount: '-29%',
@@ -388,7 +381,7 @@
             {
                 id: 'p12',
                 title: 'Shampoo reparador Palmolive',
-                image: "Assets/Shampoo reparador.png",
+                image: "../Assets/Shampoo reparador.png",
                 priceCurrent: 11.75,
                 priceOld: 16.00,
                 discount: '-27%',
@@ -398,7 +391,7 @@
             {
                 id: 'p13',
                 title: 'Paleta de sombras',
-                image: "Assets/Paleta de sombras.png",
+                image: "../Assets/Paleta de sombras.png",
                 priceCurrent: 21.00,
                 priceOld: 30.00,
                 discount: '-30%',
@@ -408,19 +401,17 @@
             {
                 id: 'p14',
                 title: 'Set de brochas de maquillaje',
-                image: "Assets/Set de brochas de maquillaje.png",
+                image: "../Assets/Set de brochas de maquillaje.png",
                 priceCurrent: 16.40,
                 priceOld: 24.00,
                 discount: '-32%',
                 stars: 4,
                 category: 'belleza'
             },
-
-            // ---------- TECNOLOGÍA (6) ----------
             {
                 id: 'p4',
                 title: 'Auriculares inalámbricos sony',
-                image: "Assets/Auriculares inalámbricos sony.png",
+                image: "../Assets/Auriculares inalámbricos sony.png",
                 priceCurrent: 56.25,
                 priceOld: 75.00,
                 discount: '-25%',
@@ -430,7 +421,7 @@
             {
                 id: 'p15',
                 title: 'Smartwatch deportivo',
-                image: "Assets/Smartwatch deportivo.png",
+                image: "../Assets/Smartwatch deportivo.png",
                 priceCurrent: 65.00,
                 priceOld: 89.00,
                 discount: '-27%',
@@ -440,7 +431,7 @@
             {
                 id: 'p16',
                 title: 'Mouse gamer RGB',
-                image: "Assets/Mouse gamer RGB.png",
+                image: "../Assets/Mouse gamer RGB.png",
                 priceCurrent: 19.99,
                 priceOld: 28.00,
                 discount: '-29%',
@@ -460,7 +451,7 @@
             {
                 id: 'p18',
                 title: 'Parlante bluetooth portátil',
-                image: "Assets/Parlante bluetooth portátil.png",
+                image: "../Assets/Parlante bluetooth portátil.png",
                 priceCurrent: 27.99,
                 priceOld: 40.00,
                 discount: '-30%',
@@ -470,19 +461,17 @@
             {
                 id: 'p19',
                 title: 'Cargador inalámbrico rápido',
-                image: "Assets/Cargador inalámbrico rápido.png",
+                image: "../Assets/Cargador inalámbrico rápido.png",
                 priceCurrent: 14.30,
                 priceOld: 20.00,
                 discount: '-28%',
                 stars: 4,
                 category: 'tecnologia'
             },
-
-            // ---------- DEPORTES (6) ----------
             {
                 id: 'p6',
                 title: 'Botella Térmica 750ml',
-                image: "Assets/Botella Térmica 750ml.png",
+                image: "../Assets/Botella Térmica 750ml.png",
                 priceCurrent: 35.00,
                 priceOld: 38.25,
                 discount: '-25%',
@@ -492,7 +481,7 @@
             {
                 id: 'p20',
                 title: 'Mancuernas ajustables',
-                image: "Assets/Mancuernas ajustables.png",
+                image: "../Assets/Mancuernas ajustables.png",
                 priceCurrent: 48.00,
                 priceOld: 65.00,
                 discount: '-26%',
@@ -502,7 +491,7 @@
             {
                 id: 'p21',
                 title: 'Balón de fútbol profesional',
-                image: "Assets/Balón de fútbol profesional.png",
+                image: "../Assets/Balón de fútbol profesional.png",
                 priceCurrent: 24.99,
                 priceOld: 34.00,
                 discount: '-27%',
@@ -512,7 +501,7 @@
             {
                 id: 'p22',
                 title: 'Guantes de Boxeo del Venudo',
-                image: "Assets/Guantes de boxeo - Venom.png",
+                image: "../Assets/Guantes de boxeo - Venom.png",
                 priceCurrent: 17.50,
                 priceOld: 24.00,
                 discount: '-27%',
@@ -522,7 +511,7 @@
             {
                 id: 'p23',
                 title: 'Mat de yoga antideslizante',
-                image: "Assets/Mat de yoga antideslizante.png",
+                image: "../Assets/Mat de yoga antideslizante.png",
                 priceCurrent: 29.99,
                 priceOld: 42.00,
                 discount: '-29%',
@@ -532,7 +521,7 @@
             {
                 id: 'p24',
                 title: 'Bicicleta de montaña',
-                image: "Assets/Bicicleta.png",
+                image: "../Assets/Bicicleta.png",
                 priceCurrent: 219.00,
                 priceOld: 290.00,
                 discount: '-24%',
@@ -541,9 +530,6 @@
             }
         ];
 
-        /* =====================================================
-           RENDER DE PRODUCTOS Y FILTROS
-           ===================================================== */
         function renderStars(count) {
             let html = '';
             for (let i = 0; i < 5; i++) {
@@ -602,15 +588,8 @@
             renderProducts();
         });
 
-        /* =====================================================
-           UTILIDADES: MODALES Y TOAST
-           ===================================================== */
-        function abrirModal(id) {
-            document.getElementById(id).classList.add('active');
-        }
-        function cerrarModal(id) {
-            document.getElementById(id).classList.remove('active');
-        }
+        function abrirModal(id) { document.getElementById(id).classList.add('active'); }
+        function cerrarModal(id) { document.getElementById(id).classList.remove('active'); }
         function mostrarInfo(icono, titulo, texto) {
             document.getElementById('infoModalIcon').className = 'modal-icon-top ' + icono;
             document.getElementById('infoModalTitle').textContent = titulo;
@@ -632,9 +611,6 @@
             });
         });
 
-        /* =====================================================
-           LOGIN / SESIÓN
-           ===================================================== */
         function onUserIconClick() {
             if (state.user) {
                 document.getElementById('accountUserName').textContent = state.user.name;
@@ -715,9 +691,6 @@
             }
         }
 
-        /* =====================================================
-           FAVORITOS
-           ===================================================== */
         function toggleFavorite(id) {
             const btn = document.getElementById('fav-' + id);
             if (state.favorites.has(id)) {
@@ -760,9 +733,6 @@
             abrirModal('favModal');
         }
 
-        /* =====================================================
-           CARRITO
-           ===================================================== */
         function addToCart(id) {
             state.cart[id] = (state.cart[id] || 0) + 1;
             actualizarBadges();
@@ -849,9 +819,6 @@
             cartBadge.style.display = cartCount > 0 ? 'flex' : 'none';
         }
 
-        /* =====================================================
-           SIMULACIÓN DE COMPRA (CHECKOUT)
-           ===================================================== */
         function irACheckout() {
             const entries = Object.entries(state.cart);
             if (entries.length === 0) return;
@@ -895,9 +862,6 @@
             abrirModal('successModal');
         }
 
-        /* =====================================================
-           MIS PEDIDOS
-           ===================================================== */
         function verPedidos() {
             if (!state.user) {
                 mostrarToast('Inicia sesión para ver tus pedidos.');
@@ -927,13 +891,9 @@
             abrirModal('ordersModal');
         }
 
-        /* =====================================================
-           INICIALIZACIÓN
-           ===================================================== */
         renderProducts();
         actualizarUI();
         actualizarBadges();
     </script>
-
 </body>
 </html>

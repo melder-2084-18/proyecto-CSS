@@ -255,16 +255,11 @@ header.layout-header {
 }
 
 .hero-image-placeholder {
-    width: 450px;
-    height: 350px;
-    background-size: cover;
+    width: 45%;
+    height: 280px;
+    background-size: contain;
     background-position: center;
-    border-radius: 20px;
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
+    background-repeat: no-repeat;
 }
 
 .hero-image-wrap { /* Usado en Hogar */
