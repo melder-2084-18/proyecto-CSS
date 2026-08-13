@@ -1,0 +1,438 @@
+/* =========================================================
+   BUSCADOR GLOBAL UNIFICADO (novaAIR)
+   ========================================================= */
+
+.search-bar {
+    position: relative !important;
+    z-index: 1000;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border: 1px solid #E2E8F0;
+    max-height: 480px;
+    overflow-y: auto;
+    display: none;
+    z-index: 9999;
+    animation: searchFadeIn 0.2s ease-out;
+}
+
+.search-dropdown.active {
+    display: block;
+}
+
+@keyframes searchFadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.search-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-item:hover,
+.search-item.selected {
+    background-color: #F1F5F9;
+}
+
+.search-item-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    flex-shrink: 0;
+}
+
+.search-item-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-item-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1E293B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-item-title mark {
+    background: #FEF08A;
+    color: #854D0E;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+.search-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.search-item-category {
+    color: #64748B;
+    background: #F1F5F9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.search-item-price {
+    font-weight: 800;
+    color: #2563EB;
+}
+
+.search-empty-state {
+    padding: 24px 16px;
+    text-align: center;
+    color: #64748B;
+}
+
+.search-empty-state i {
+    font-size: 32px;
+    color: #94A3B8;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.search-empty-state p {
+    font-size: 13.5px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.search-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+.search-dropdown::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .search-dropdown {
+        position: fixed;
+        top: 65px;
+        left: 10px;
+        right: 10px;
+        max-height: 70vh;
+    }
+}
+/* =========================================================
+   BOTÓN Y MODAL DE ATENCIÓN AL CLIENTE
+   ========================================================= */
+
+.btn-support {
+    background-color: #0284C7 !important;
+    color: #ffffff !important;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-support:hover {
+    background-color: #0369A1 !important;
+    transform: translateY(-1px);
+}
+
+/* Modal Overlay */
+.support-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 16px;
+}
+
+.support-modal.active {
+    display: flex;
+    animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Modal Content Card */
+.support-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    padding: 28px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.support-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: #F1F5F9;
+    border: none;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #64748B;
+}
+
+.support-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.support-header i {
+    font-size: 40px;
+    color: #0284C7;
+    margin-bottom: 8px;
+}
+
+.support-header h2 {
+    font-size: 20px;
+    color: #0F172A;
+    margin: 0 0 6px 0;
+}
+
+.support-header p {
+    font-size: 13px;
+    color: #64748B;
+    margin: 0;
+}
+
+/* Tabs */
+.support-options {
+    display: flex;
+    gap: 6px;
+    background: #F8FAFC;
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.support-tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.support-tab.active {
+    background: #ffffff;
+    color: #0284C7;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Form Elements */
+.support-form {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.support-form.active {
+    display: flex;
+}
+
+.support-form label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #334155;
+    text-align: center;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    color: #CBD5E1;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.star-rating i.active {
+    color: #EAB308;
+}
+
+.support-form input,
+.support-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 13px;
+    outline: none;
+    background: #F8FAFC;
+}
+
+.support-form textarea {
+    height: 90px;
+    resize: none;
+}
+
+.btn-submit-support {
+    background: #0284C7;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 13.5px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.btn-submit-support.alert-btn {
+    background: #EF4444;
+}
+
+.contact-info-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #F8FAFC;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+}
+
+.contact-info-card i {
+    font-size: 24px;
+    color: #0284C7;
+}
+
+.contact-info-card h4 {
+    margin: 0;
+    font-size: 13.5px;
+    color: #1E293B;
+}
+
+.contact-info-card p {
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: #64748B;
+}
+/* Limpieza de botones heredados o sobrantes */
+.btn-categories,
+.categories-dropdown,
+.dropdown-container {
+    display: none !important;
+}
+
+/* Estilo limpio para el nuevo botón de Atención al cliente */
+.btn-support {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    background-color: #0284C7 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 8px 18px !important;
+    border-radius: 20px !important;
+    font-weight: 600 !important;
+    font-size: 13.5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+.btn-support:hover {
+    background-color: #0369A1 !important;
+    transform: translateY(-1px);
+}
+/* =========================================================
+   NOTIFICACIÓN PERSONALIZADA (novaAIR dice:)
+   ========================================================= */
+.novaair-custom-toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: #ffffff;
+    border-left: 5px solid #0284C7;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 14px 20px;
+    z-index: 99999;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.novaair-custom-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.novaair-custom-toast .toast-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.novaair-custom-toast i {
+    font-size: 24px;
+    color: #0284C7;
+}
+
+.novaair-custom-toast strong {
+    display: block;
+    font-size: 13.5px;
+    color: #0F172A;
+    margin-bottom: 2px;
+}
+
+.novaair-custom-toast p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748B;
+}

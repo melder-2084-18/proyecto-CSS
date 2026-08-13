@@ -796,6 +796,7 @@
             color: #34D399;
         }
     </style>
+    <link rel="stylesheet" href="../Css/buscador.css">
 </head>
 <body>
 
@@ -835,22 +836,19 @@
                 </div>
             </div>
 
-            <nav>
-                <div class="dropdown-container">
-                    <button class="btn-categories">
-                        <i class="fa-solid fa-bars"></i> Categorías <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
-                    </button>
-                    <div class="dropdown-menu"></div>
-                </div>
+            <nav class="navbar">
+            <button class="btn-support" onclick="openSupportModal()">
+    <i class="fa-solid fa-headset"></i> Atención al cliente
+</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+                <li><a href="hogar.html">Hogar</a></li>
+                <li><a href="tecnologia.html">Tecnologia</a></li>
+            </ul>
+        </nav>
 
-                <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="ofertas.html" class="active">Ofertas</a></li>
-                    <li><a href="mas-vendidos.html">Más vendidos</a></li>
-                    <li><a href="hogar.html">Hogar</a></li>
-                    <li><a href="tecnologia.html">Tecnología</a></li>
-                </ul>
-            </nav>
         </header>
 
         <section class="offers-header">
@@ -1698,7 +1696,149 @@
         renderProducts();
         actualizarUI();
         actualizarBadges();
-    </script>
+         </script>
+        <!-- MODAL DE ATENCIÓN AL CLIENTE -->
+<div id="supportModal" class="support-modal">
+    <div class="support-modal-content">
+        <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
+        
+        <div class="support-header">
+            <i class="fa-solid fa-headset"></i>
+            <h2>¡Estamos para ayudarte!</h2>
+            <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
+        </div>
 
+        <div class="support-options">
+            <button class="support-tab active" onclick="switchSupportTab('opinion')">
+                <i class="fa-solid fa-star"></i> Opinión
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('queja')">
+                <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('contacto')">
+                <i class="fa-solid fa-comments"></i> Contacto
+            </button>
+        </div>
+
+        <div class="support-body">
+            <!-- Formulario de Opinión -->
+            <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
+                <label>¿Cómo evaluarías tu experiencia?</label>
+                <div class="star-rating">
+                    <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
+                </div>
+                <input type="text" placeholder="Tu nombre (opcional)">
+                <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
+                <button type="submit" class="btn-submit-support">Enviar Opinión</button>
+            </form>
+
+            <!-- Formulario de Queja -->
+            <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
+                <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
+                <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
+                <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
+                <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
+            </form>
+
+            <!-- Sección de Contacto -->
+            <div id="supportContact" class="support-form">
+                <div class="contact-info-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4>Atención Inmediata</h4>
+                        <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Correo de Soporte</h4>
+                        <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </script>
+<script src="js/buscador.js"></script>
+<script src="js/buscador.js"></script>
+<!-- =========================================================
+     VENTANA FLOTANTE DE ATENCIÓN AL CLIENTE
+     ========================================================= -->
+<div id="supportModal" class="support-modal">
+    <div class="support-modal-content">
+        <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
+        
+        <div class="support-header">
+            <i class="fa-solid fa-headset"></i>
+            <h2>¡Estamos para ayudarte!</h2>
+            <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
+        </div>
+
+        <div class="support-options">
+            <button class="support-tab active" onclick="switchSupportTab('opinion')">
+                <i class="fa-solid fa-star"></i> Opinión
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('queja')">
+                <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('contacto')">
+                <i class="fa-solid fa-comments"></i> Contacto
+            </button>
+        </div>
+
+        <div class="support-body">
+            <!-- Formulario de Opinión -->
+            <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
+                <label>¿Cómo evaluarías tu experiencia?</label>
+                <div class="star-rating">
+                    <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
+                </div>
+                <input type="text" placeholder="Tu nombre (opcional)">
+                <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
+                <button type="submit" class="btn-submit-support">Enviar Opinión</button>
+            </form>
+
+            <!-- Formulario de Queja -->
+            <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
+                <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
+                <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
+                <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
+                <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
+            </form>
+
+            <!-- Sección de Contacto -->
+            <div id="supportContact" class="support-form">
+                <div class="contact-info-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4>Atención Inmediata</h4>
+                        <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Correo de Soporte</h4>
+                        <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+    </script>
+<script src="js/buscador.js"></script>
 </body>
 </html>

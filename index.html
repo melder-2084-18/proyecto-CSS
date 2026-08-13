@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>novaAIR - Tienda Online</title>
-    <!-- Fuente de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Iconos de FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* ================= VARIABLES Y RESET ================= */
         :root {
@@ -87,30 +85,31 @@
             font-size: 10px;
             color: var(--text-gray);
         }
-/* --- ESTILOS DEL BUSCADOR UNIFICADO --- */
-.search-bar {
-    flex: 1;
-    max-width: 500px;
-    position: relative;
-}
 
-.search-bar input {
-    width: 100%;
-    padding: 10px 16px 10px 40px;
-    border-radius: 20px;
-    border: 1px solid #CBD5E1;
-    background-color: #F1F5F9;
-    font-size: 14px;
-    outline: none;
-}
+        /* --- ESTILOS DEL BUSCADOR UNIFICADO --- */
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
 
-.search-bar i {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-gray); 
-}
+        .search-bar input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            border-radius: 20px;
+            border: 1px solid #CBD5E1;
+            background-color: #F1F5F9;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray); 
+        }
        
         .user-actions {
             display: flex;
@@ -238,7 +237,7 @@
         .hero-image-placeholder {
             width: 450px;
             height: 350px;
-            background: url('../Assets/banner 1.png') no-repeat center center;
+            background: url('./Assets/banner%201.png') no-repeat center center;
             background-size: contain;
             position: relative;
             z-index: 1;
@@ -863,15 +862,16 @@
         #toast i {
             color: #34D399;
         }
+        
     </style>
+    <link rel="stylesheet" href="../Css/buscador.css">
 </head>
 <body>
 
     <div class="container">
-        <!-- HEADER PRINCIPAL -->
         <header class="top-header">
             <a href="index.html" class="logo" style="text-decoration:none;">
-                <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
+                <img src="./Assets/Logo%20nova%20air.png" alt="Icono novaAIR" style="height: 24px;">
                 <div>
                     <h1>nova<span>AIR</span></h1>
                     <p>todo lo que necesitas al mejor precio</p>
@@ -903,23 +903,20 @@
             </div>
         </header>
 
-        <!-- BARRA DE NAVEGACIÓN -->
         <nav class="navbar">
-            <button class="btn-categories">
-                <i class="fa-solid fa-border-all"></i> Categorias <i class="fa-solid fa-chevron-down"></i>
-            </button>
+            <button class="btn-support" onclick="openSupportModal()">
+    <i class="fa-solid fa-headset"></i> Atención al cliente
+</button>
             <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
                 <li><a href="mas-vendidos.html">Mas vendidos</a></li>
                 <li><a href="hogar.html">Hogar</a></li>
-                <li><a href="ofertas.html">Belleza</a></li>
                 <li><a href="tecnologia.html">Tecnologia</a></li>
             </ul>
         </nav>
 
         <main>
-            <!-- SECCIÓN HERO -->
             <section class="hero">
                 <div class="hero-content">
                     <h2>Todo lo que te gusta,<br><span>al mejor precio</span></h2>
@@ -936,7 +933,6 @@
                 </div>
             </section>
 
-            <!-- BANNERS DE BENEFICIOS -->
             <section class="benefits-banner">
                 <button class="benefit-card blue" onclick="mostrarInfo('fa-solid fa-truck', 'Envíos a todo el país', '¡Recibe tus productos en la puerta de tu casa en menos de 24/48 horas para que disfrutes tu compra cuanto antes!')">
                     <div class="benefit-icon"><i class="fa-solid fa-truck"></i></div>
@@ -963,29 +959,26 @@
                 </button>
             </section>
 
-            <!-- OFERTAS DEL DÍA -->
             <h3 class="section-title" id="ofertas">🔥 Ofertas del dia</h3>
             <section class="products-grid" id="productsGrid">
-                <!-- Los productos se generan dinámicamente con JavaScript -->
-            </section>
+                </section>
 
-            <!-- BANNER INFERIOR -->
             <section class="promo-banner">
                 <div class="promo-text">
                     <h3>Renová tu<br>estilo</h3>
                     <p>Descubrí lo nuevo en moda</p>
                 </div>
-                <img src="Assets/chica banner 2.png" alt="Moda" class="promo-image" style="object-fit: cover; border-radius: 50%;">
+                <img src="./Assets/chica%20banner%202.png" alt="Moda" class="promo-image" style="object-fit: cover; border-radius: 50%;">
             </section>
         </main>
     </div>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-col">
                 <div class="logo">
-<img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">                    <div>
+                    <img src="./Assets/Logo%20nova%20air.png" alt="Icono novaAIR" style="height: 24px;">
+                    <div>
                         <h1>nova<span>AIR</span></h1>
                         <p>todo lo que necesitas al mejor precio</p>
                     </div>
@@ -1033,7 +1026,6 @@
         </div>
     </footer>
 
-    <!-- ============ MODAL GENÉRICO DE INFORMACIÓN ============ -->
     <div id="infoModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span>
@@ -1044,7 +1036,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE LOGIN / REGISTRO ============ -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('loginModal')">&times;</span>
@@ -1075,7 +1066,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE SESIÓN ACTIVA ============ -->
     <div id="accountModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('accountModal')">&times;</span>
@@ -1087,7 +1077,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE FAVORITOS ============ -->
     <div id="favModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('favModal')">&times;</span>
@@ -1096,7 +1085,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE CARRITO ============ -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('cartModal')">&times;</span>
@@ -1112,7 +1100,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE CONFIRMACIÓN DE COMPRA ============ -->
     <div id="checkoutModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('checkoutModal')">&times;</span>
@@ -1124,7 +1111,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE ÉXITO DE COMPRA ============ -->
     <div id="successModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('successModal')">&times;</span>
@@ -1136,7 +1122,6 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE MIS PEDIDOS ============ -->
     <div id="ordersModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('ordersModal')">&times;</span>
@@ -1145,10 +1130,8 @@
         </div>
     </div>
 
-    <!-- Notificación tipo toast -->
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
 
-    <!-- SCRIPT PRINCIPAL -->
     <script>
         /* =====================================================
            ESTADO DE LA APLICACIÓN (en memoria, se reinicia al recargar)
@@ -1163,12 +1146,11 @@
         };
 
         /* Catálogo de productos */
-       /* Catálogo de productos */
         const products = [
             {
                 id: 'p1',
                 title: 'Buzo adidas Classic hombre',
-                image: 'Assets/sueter banner 2.png',
+                image: './Assets/sueter%20banner%202.png',
                 priceCurrent: 12.99,
                 priceOld: 15.99,
                 discount: '-40%',
@@ -1177,7 +1159,7 @@
             {
                 id: 'p2',
                 title: 'Perfume Dream 100ml',
-                image: "Assets/Perfume Ocean 100ml.png",
+                image: "./Assets/Perfume%20Ocean%20100ml.png",
                 priceCurrent: 75.00,
                 priceOld: 89.00,
                 discount: '-35%',
@@ -1186,7 +1168,7 @@
             {
                 id: 'p3',
                 title: 'Mochila Urban',
-                image: "Assets/mochila negra producto.png",
+                image: "./Assets/mochila%20negra%20producto.png",
                 priceCurrent: 15.99,
                 priceOld: 22.00,
                 discount: '-30%',
@@ -1196,7 +1178,7 @@
             {
                 id: 'p4',
                 title: 'Batidora de Pie Smart (Hogar)',
-                image: "Assets/Batidora Smart .png",
+                image: "./Assets/Batidora%20Smart%20.png",
                 priceCurrent: 45.99,
                 priceOld: 60.00,
                 discount: '-23%',
@@ -1205,7 +1187,7 @@
             {
                 id: 'p5',
                 title: 'Auriculares Inalámbricos Pro (Tecnología)',
-                image: "Assets/Auriculares inalámbricos sony.png",
+                image: "./Assets/Auriculares%20inal%C3%A1mbricos%20sony.png",
                 priceCurrent: 59.00,
                 priceOld: 85.00,
                 discount: '-30%',
@@ -1214,7 +1196,7 @@
             {
                 id: 'p6',
                 title: 'Set de Skincare Premium (Belleza)',
-                image: "Assets/Set de belleza.png",
+                image: "./Assets/Set%20de%20belleza.png",
                 priceCurrent: 29.50,
                 priceOld: 40.00,
                 discount: '-26%',
@@ -1332,8 +1314,6 @@
                     errorEl.style.display = 'block';
                     return;
                 }
-                // Simulación simple: si hay una cuenta registrada, valida contra ella;
-                // si no, acepta el inicio de sesión igualmente para efectos de demo.
                 if (state.registeredUser && state.registeredUser.email === email && state.registeredUser.password !== password) {
                     errorEl.textContent = 'Contraseña incorrecta. Intenta de nuevo.';
                     errorEl.style.display = 'block';
@@ -1591,7 +1571,144 @@
         renderProducts();
         actualizarUI();
         actualizarBadges();
-    </script>
+        </script>
+        <!-- MODAL DE ATENCIÓN AL CLIENTE -->
+<div id="supportModal" class="support-modal">
+    <div class="support-modal-content">
+        <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
+        
+        <div class="support-header">
+            <i class="fa-solid fa-headset"></i>
+            <h2>¡Estamos para ayudarte!</h2>
+            <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
+        </div>
 
+        <div class="support-options">
+            <button class="support-tab active" onclick="switchSupportTab('opinion')">
+                <i class="fa-solid fa-star"></i> Opinión
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('queja')">
+                <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('contacto')">
+                <i class="fa-solid fa-comments"></i> Contacto
+            </button>
+        </div>
+
+        <div class="support-body">
+            <!-- Formulario de Opinión -->
+            <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
+                <label>¿Cómo evaluarías tu experiencia?</label>
+                <div class="star-rating">
+                    <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
+                </div>
+                <input type="text" placeholder="Tu nombre (opcional)">
+                <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
+                <button type="submit" class="btn-submit-support">Enviar Opinión</button>
+            </form>
+
+            <!-- Formulario de Queja -->
+            <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
+                <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
+                <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
+                <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
+                <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
+            </form>
+
+            <!-- Sección de Contacto -->
+            <div id="supportContact" class="support-form">
+                <div class="contact-info-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4>Atención Inmediata</h4>
+                        <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Correo de Soporte</h4>
+                        <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </script>
+<script src="js/buscador.js"></script>
+<!-- =========================================================
+     VENTANA FLOTANTE DE ATENCIÓN AL CLIENTE
+     ========================================================= -->
+<div id="supportModal" class="support-modal">
+    <div class="support-modal-content">
+        <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
+        
+        <div class="support-header">
+            <i class="fa-solid fa-headset"></i>
+            <h2>¡Estamos para ayudarte!</h2>
+            <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
+        </div>
+
+        <div class="support-options">
+            <button class="support-tab active" onclick="switchSupportTab('opinion')">
+                <i class="fa-solid fa-star"></i> Opinión
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('queja')">
+                <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
+            </button>
+            <button class="support-tab" onclick="switchSupportTab('contacto')">
+                <i class="fa-solid fa-comments"></i> Contacto
+            </button>
+        </div>
+
+        <div class="support-body">
+            <!-- Formulario de Opinión -->
+            <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
+                <label>¿Cómo evaluarías tu experiencia?</label>
+                <div class="star-rating">
+                    <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
+                    <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
+                </div>
+                <input type="text" placeholder="Tu nombre (opcional)">
+                <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
+                <button type="submit" class="btn-submit-support">Enviar Opinión</button>
+            </form>
+
+            <!-- Formulario de Queja -->
+            <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
+                <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
+                <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
+                <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
+                <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
+            </form>
+
+            <!-- Sección de Contacto -->
+            <div id="supportContact" class="support-form">
+                <div class="contact-info-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4>Atención Inmediata</h4>
+                        <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Correo de Soporte</h4>
+                        <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
