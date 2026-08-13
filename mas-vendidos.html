@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Iconos de FontAwesome (Versión actualizada) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-   <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/buscador.css">
 </head>
 <body>
 
@@ -25,9 +25,9 @@
             </a>
 
             <div class="search-bar">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" placeholder="Buscar productos, categorias o marcas">
-</div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar productos, categorias o marcas">
+            </div>
 
             <div class="user-actions">
                 <button class="action-item" id="btnLogin" onclick="onUserIconClick()">
@@ -47,17 +47,20 @@
             </div>
         </header>
 
-        <!-- BARRA DE NAVEGACIÓN -->
-       <nav class="navbar">
-    <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
-        <li><a href="mas-vendidos.html">Mas vendidos</a></li>
-        <li><a href="hogar.html">Hogar</a></li>
-        <li><a href="belleza.html">Belleza</a></li>
-        <li><a href="tecnologia.html">Tecnologia</a></li>
-    </ul>
-</nav>
+        <!-- BARRA DE NAVEGACIÓN CON BOTÓN DE ATENCIÓN AL CLIENTE -->
+        <nav class="navbar">
+            <button class="btn-support" onclick="openSupportModal()">
+                <i class="fa-solid fa-headset"></i> Atención al cliente
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+                <li><a href="hogar.html">Hogar</a></li>
+                <li><a href="belleza.html">Belleza</a></li>
+                <li><a href="tecnologia.html">Tecnologia</a></li>
+            </ul>
+        </nav>
 
         <main>
             <!-- SECCIÓN HERO (ADAPTADA A MÁS VENDIDOS) -->
@@ -104,7 +107,7 @@
                 </button>
             </section>
 
-            <!-- OFERTAS DEL DÍA (AHORA SON LOS MÁS VENDIDOS) -->
+            <!-- PRODUCTOS MÁS VENDIDOS -->
             <h3 class="section-title" id="productos">
                 <i class="fa-solid fa-fire" style="color: #F59E0B;"></i> Más Vendidos
             </h3>
@@ -159,7 +162,7 @@
                     <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega. Todas las transacciones están protegidas con encriptación de extremo a extremo.')">Pagos</button></li>
                     <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar un cambio o devolución sin costo adicional.')">Cambios y devoluciones</button></li>
                     <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas sobre tu pedido, pagos o envíos? Visita nuestro centro de ayuda o escríbenos y te responderemos en menos de 24 horas.')">Preguntas frecuentes</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com o al chat en línea, disponible de lunes a sábado de 8:00 a.m. a 6:00 p.m.')">Contacto</button></li>
+                    <li><button onclick="openSupportModal()">Contacto</button></li>
                 </ul>
             </div>
 
@@ -176,7 +179,7 @@
         </div>
     </footer>
 
-    <!-- ============ MODAL GENÉRICO DE INFORMACIÓN ============ -->
+    <!-- MODAL INFORMACIÓN -->
     <div id="infoModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span>
@@ -187,7 +190,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE LOGIN / REGISTRO ============ -->
+    <!-- MODAL LOGIN -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('loginModal')">&times;</span>
@@ -216,7 +219,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE SESIÓN ACTIVA ============ -->
+    <!-- MODAL CUENTA -->
     <div id="accountModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('accountModal')">&times;</span>
@@ -228,7 +231,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE FAVORITOS ============ -->
+    <!-- MODAL FAVORITOS -->
     <div id="favModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('favModal')">&times;</span>
@@ -237,7 +240,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE CARRITO ============ -->
+    <!-- MODAL CARRITO -->
     <div id="cartModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('cartModal')">&times;</span>
@@ -253,7 +256,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE CONFIRMACIÓN DE COMPRA ============ -->
+    <!-- MODAL CHECKOUT -->
     <div id="checkoutModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('checkoutModal')">&times;</span>
@@ -265,7 +268,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE ÉXITO DE COMPRA ============ -->
+    <!-- MODAL ÉXITO -->
     <div id="successModal" class="modal-overlay">
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('successModal')">&times;</span>
@@ -277,7 +280,7 @@
         </div>
     </div>
 
-    <!-- ============ MODAL DE MIS PEDIDOS ============ -->
+    <!-- MODAL PEDIDOS -->
     <div id="ordersModal" class="modal-overlay">
         <div class="modal-box modal-wide">
             <span class="modal-close-btn" onclick="cerrarModal('ordersModal')">&times;</span>
@@ -286,9 +289,80 @@
         </div>
     </div>
 
+    <!-- MODAL DE ATENCIÓN AL CLIENTE -->
+    <div id="supportModal" class="support-modal">
+        <div class="support-modal-content">
+            <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
+            
+            <div class="support-header">
+                <i class="fa-solid fa-headset"></i>
+                <h2>¡Estamos para ayudarte!</h2>
+                <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
+            </div>
+
+            <div class="support-options">
+                <button class="support-tab active" onclick="switchSupportTab('opinion')">
+                    <i class="fa-solid fa-star"></i> Opinión
+                </button>
+                <button class="support-tab" onclick="switchSupportTab('queja')">
+                    <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
+                </button>
+                <button class="support-tab" onclick="switchSupportTab('contacto')">
+                    <i class="fa-solid fa-comments"></i> Contacto
+                </button>
+            </div>
+
+            <div class="support-body">
+                <!-- Formulario de Opinión -->
+                <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
+                    <label>¿Cómo evaluarías tu experiencia?</label>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
+                    </div>
+                    <input type="text" placeholder="Tu nombre (opcional)">
+                    <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
+                    <button type="submit" class="btn-submit-support">Enviar Opinión</button>
+                </form>
+
+                <!-- Formulario de Queja -->
+                <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
+                    <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
+                    <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
+                    <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
+                    <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
+                </form>
+
+                <!-- Sección de Contacto -->
+                <div id="supportContact" class="support-form">
+                    <div class="contact-info-card">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <h4>Atención Inmediata</h4>
+                            <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Correo de Soporte</h4>
+                            <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Notificación tipo toast -->
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
+
     <script src="JS/main.js"></script>
+    <script src="js/buscador.js"></script>
+
     <!-- SCRIPT PRINCIPAL -->
     <script>
         const state = {
@@ -300,7 +374,7 @@
             loginMode: 'login'
         };
 
-        /* Catálogo de productos de Más Vendidos (con imagen faltante arreglada) */
+        /* Catálogo de productos de Más Vendidos */
         const products = [
             {
                 id: 'p1',
@@ -365,9 +439,9 @@
 
         function renderProducts() {
             const grid = document.getElementById('productGrid');
+            if (!grid) return;
             grid.innerHTML = products.map(p => `
                 <article class="product-card">
-                    <!-- Nueva etiqueta top ventas combinada con el CSS general -->
                     <span class="best-seller-badge"><i class="fa-solid fa-fire"></i> Top ventas</span>
                     <button class="favorite-toggle ${state.favorites.has(p.id) ? 'active' : ''}" id="fav-${p.id}" onclick="toggleFavorite('${p.id}')" title="Agregar a favoritos">
                         <i class="fa-solid fa-heart"></i>
@@ -616,7 +690,7 @@
         }
 
         /* =====================================================
-           SIMULACIÓN DE COMPRA (CHECKOUT)
+           CHECKOUT Y PEDIDOS
            ===================================================== */
         function irACheckout() {
             const entries = Object.entries(state.cart);
@@ -655,9 +729,6 @@
             abrirModal('successModal');
         }
 
-        /* =====================================================
-           MIS PEDIDOS
-           ===================================================== */
         function verPedidos() {
             if (!state.user) {
                 mostrarToast('Inicia sesión para ver tus pedidos.');
@@ -688,154 +759,53 @@
         }
 
         /* =====================================================
-           INICIALIZACIÓN
+           LÓGICA DE ATENCIÓN AL CLIENTE
            ===================================================== */
+        function openSupportModal() {
+            document.getElementById('supportModal').classList.add('active');
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').classList.remove('active');
+        }
+
+        function switchSupportTab(tab) {
+            document.querySelectorAll('.support-tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.support-form').forEach(f => f.classList.remove('active'));
+
+            if (tab === 'opinion') {
+                document.querySelectorAll('.support-tab')[0].classList.add('active');
+                document.getElementById('supportFormOpinion').classList.add('active');
+            } else if (tab === 'queja') {
+                document.querySelectorAll('.support-tab')[1].classList.add('active');
+                document.getElementById('supportFormQueja').classList.add('active');
+            } else if (tab === 'contacto') {
+                document.querySelectorAll('.support-tab')[2].classList.add('active');
+                document.getElementById('supportContact').classList.add('active');
+            }
+        }
+
+        function setRating(stars) {
+            const icons = document.querySelectorAll('.star-rating i');
+            icons.forEach((icon, index) => {
+                if (index < stars) {
+                    icon.classList.add('active');
+                } else {
+                    icon.classList.remove('active');
+                }
+            });
+        }
+
+        function handleSupportSubmit(e, message) {
+            e.preventDefault();
+            closeSupportModal();
+            mostrarToast(message);
+        }
+
+        /* INICIALIZACIÓN */
         renderProducts();
         actualizarUI();
         actualizarBadges();
-        </script>
-        <!-- MODAL DE ATENCIÓN AL CLIENTE -->
-<div id="supportModal" class="support-modal">
-    <div class="support-modal-content">
-        <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
-        
-        <div class="support-header">
-            <i class="fa-solid fa-headset"></i>
-            <h2>¡Estamos para ayudarte!</h2>
-            <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
-        </div>
-
-        <div class="support-options">
-            <button class="support-tab active" onclick="switchSupportTab('opinion')">
-                <i class="fa-solid fa-star"></i> Opinión
-            </button>
-            <button class="support-tab" onclick="switchSupportTab('queja')">
-                <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
-            </button>
-            <button class="support-tab" onclick="switchSupportTab('contacto')">
-                <i class="fa-solid fa-comments"></i> Contacto
-            </button>
-        </div>
-
-        <div class="support-body">
-            <!-- Formulario de Opinión -->
-            <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
-                <label>¿Cómo evaluarías tu experiencia?</label>
-                <div class="star-rating">
-                    <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
-                </div>
-                <input type="text" placeholder="Tu nombre (opcional)">
-                <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
-                <button type="submit" class="btn-submit-support">Enviar Opinión</button>
-            </form>
-
-            <!-- Formulario de Queja -->
-            <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
-                <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
-                <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
-                <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
-                <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
-            </form>
-
-            <!-- Sección de Contacto -->
-            <div id="supportContact" class="support-form">
-                <div class="contact-info-card">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div>
-                        <h4>Atención Inmediata</h4>
-                        <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
-                    </div>
-                </div>
-                <div class="contact-info-card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <h4>Correo de Soporte</h4>
-                        <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     </script>
-<script src="js/buscador.js"></script>
-<script src="js/buscador.js"></script>
-<!-- =========================================================
-     VENTANA FLOTANTE DE ATENCIÓN AL CLIENTE
-     ========================================================= -->
-<div id="supportModal" class="support-modal">
-    <div class="support-modal-content">
-        <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
-        
-        <div class="support-header">
-            <i class="fa-solid fa-headset"></i>
-            <h2>¡Estamos para ayudarte!</h2>
-            <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
-        </div>
-
-        <div class="support-options">
-            <button class="support-tab active" onclick="switchSupportTab('opinion')">
-                <i class="fa-solid fa-star"></i> Opinión
-            </button>
-            <button class="support-tab" onclick="switchSupportTab('queja')">
-                <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
-            </button>
-            <button class="support-tab" onclick="switchSupportTab('contacto')">
-                <i class="fa-solid fa-comments"></i> Contacto
-            </button>
-        </div>
-
-        <div class="support-body">
-            <!-- Formulario de Opinión -->
-            <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
-                <label>¿Cómo evaluarías tu experiencia?</label>
-                <div class="star-rating">
-                    <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
-                    <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
-                </div>
-                <input type="text" placeholder="Tu nombre (opcional)">
-                <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
-                <button type="submit" class="btn-submit-support">Enviar Opinión</button>
-            </form>
-
-            <!-- Formulario de Queja -->
-            <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
-                <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
-                <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
-                <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
-                <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
-            </form>
-
-            <!-- Sección de Contacto -->
-            <div id="supportContact" class="support-form">
-                <div class="contact-info-card">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div>
-                        <h4>Atención Inmediata</h4>
-                        <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
-                    </div>
-                </div>
-                <div class="contact-info-card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <h4>Correo de Soporte</h4>
-                        <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
-    </script>
-<script src="js/buscador.js"></script>
 </body>
 </html>

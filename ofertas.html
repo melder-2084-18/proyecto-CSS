@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/buscador.css">
 </head>
 <body>
 
@@ -16,13 +18,13 @@
 
         <header>
             <div class="header-top">
-                <div class="logo">
+                <a href="index.html" class="logo" style="text-decoration:none;">
                     <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
                     <div>
                         <h1>nova<span>AIR</span></h1>
                         <p>todo lo que necesitas al mejor precio</p>
                     </div>
-                </div>
+                </a>
 
                 <div class="search-bar">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -47,7 +49,11 @@
                 </div>
             </div>
 
+            <!-- BARRA DE NAVEGACIÓN -->
             <nav class="navbar">
+                <button class="btn-support" onclick="openSupportModal()">
+                    <i class="fa-solid fa-headset"></i> Atención al cliente
+                </button>
                 <ul class="nav-links">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="ofertas.html">Ofertas</a></li>
@@ -153,7 +159,7 @@
                     <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega.')">Pagos</button></li>
                     <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar cambio.')">Cambios y devoluciones</button></li>
                     <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas sobre tu pedido? Visita nuestro centro de ayuda.')">Preguntas frecuentes</button></li>
-                    <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com')">Contacto</button></li>
+                    <li><button onclick="openSupportModal()">Contacto</button></li>
                 </ul>
             </div>
 
@@ -273,9 +279,79 @@
         </div>
     </div>
 
+    <!-- MODAL DE ATENCIÓN AL CLIENTE -->
+    <div id="supportModal" class="support-modal">
+        <div class="support-modal-content">
+            <button class="support-close-btn" onclick="closeSupportModal()">&times;</button>
+            
+            <div class="support-header">
+                <i class="fa-solid fa-headset"></i>
+                <h2>¡Estamos para ayudarte!</h2>
+                <p>En <strong>novaAIR</strong> tu opinión y satisfacción son nuestra prioridad. Cuéntanos qué necesitas:</p>
+            </div>
+
+            <div class="support-options">
+                <button class="support-tab active" onclick="switchSupportTab('opinion')">
+                    <i class="fa-solid fa-star"></i> Opinión
+                </button>
+                <button class="support-tab" onclick="switchSupportTab('queja')">
+                    <i class="fa-solid fa-circle-exclamation"></i> Queja o Reclamo
+                </button>
+                <button class="support-tab" onclick="switchSupportTab('contacto')">
+                    <i class="fa-solid fa-comments"></i> Contacto
+                </button>
+            </div>
+
+            <div class="support-body">
+                <!-- Formulario de Opinión -->
+                <form id="supportFormOpinion" class="support-form active" onsubmit="handleSupportSubmit(event, '¡Gracias por tus comentarios! Nos ayudan a mejorar cada día.')">
+                    <label>¿Cómo evaluarías tu experiencia?</label>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star active" onclick="setRating(1)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(2)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(3)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(4)"></i>
+                        <i class="fa-solid fa-star active" onclick="setRating(5)"></i>
+                    </div>
+                    <input type="text" placeholder="Tu nombre (opcional)">
+                    <textarea placeholder="Déjanos tus comentarios o sugerencias..." required></textarea>
+                    <button type="submit" class="btn-submit-support">Enviar Opinión</button>
+                </form>
+
+                <!-- Formulario de Queja -->
+                <form id="supportFormQueja" class="support-form" onsubmit="handleSupportSubmit(event, 'Hemos recibido tu reporte. Nuestro equipo te contactará muy pronto.')">
+                    <input type="email" placeholder="Tu correo electrónico para darte respuesta" required>
+                    <input type="text" placeholder="Asunto de la queja (ej. Producto dañado, demora)" required>
+                    <textarea placeholder="Describe lo sucedido con el mayor detalle posible..." required></textarea>
+                    <button type="submit" class="btn-submit-support alert-btn">Enviar Reporte</button>
+                </form>
+
+                <!-- Sección de Contacto -->
+                <div id="supportContact" class="support-form">
+                    <div class="contact-info-card">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <h4>Atención Inmediata</h4>
+                            <p>Escríbenos directamente a nuestro WhatsApp oficial de soporte.</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Correo de Soporte</h4>
+                            <p>soporte@novaair.com (Respuesta en menos de 24h)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
 
-    <script src="../JS/main.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="js/buscador.js"></script>
+
     <script>
         const state = {
             user: null,
@@ -540,6 +616,7 @@
 
         function renderProducts() {
             const grid = document.getElementById('productGrid');
+            if (!grid) return;
             const filtered = state.currentFilter === 'todo'
                 ? products
                 : products.filter(p => p.category === state.currentFilter);
@@ -889,6 +966,48 @@
                 `).join('');
             }
             abrirModal('ordersModal');
+        }
+
+        /* ================= ATENCIÓN AL CLIENTE ================= */
+        function openSupportModal() {
+            document.getElementById('supportModal').classList.add('active');
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').classList.remove('active');
+        }
+
+        function switchSupportTab(tab) {
+            document.querySelectorAll('.support-tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.support-form').forEach(f => f.classList.remove('active'));
+
+            if (tab === 'opinion') {
+                document.querySelectorAll('.support-tab')[0].classList.add('active');
+                document.getElementById('supportFormOpinion').classList.add('active');
+            } else if (tab === 'queja') {
+                document.querySelectorAll('.support-tab')[1].classList.add('active');
+                document.getElementById('supportFormQueja').classList.add('active');
+            } else if (tab === 'contacto') {
+                document.querySelectorAll('.support-tab')[2].classList.add('active');
+                document.getElementById('supportContact').classList.add('active');
+            }
+        }
+
+        function setRating(stars) {
+            const icons = document.querySelectorAll('.star-rating i');
+            icons.forEach((icon, index) => {
+                if (index < stars) {
+                    icon.classList.add('active');
+                } else {
+                    icon.classList.remove('active');
+                }
+            });
+        }
+
+        function handleSupportSubmit(e, message) {
+            e.preventDefault();
+            closeSupportModal();
+            mostrarToast(message);
         }
 
         renderProducts();
