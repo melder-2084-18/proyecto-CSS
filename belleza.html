@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>novaAIR - Belleza</title>
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+      <link rel="stylesheet" href="Css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER PRINCIPAL -->
+        <header class="top-header">
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
+                <div>
+                    <h1>nova<span>AIR</span></h1>
+                    <p>todo lo que necesitas al mejor precio</p>
+                </div>
+            </a>
+
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar productos, categorias o marcas">
+            </div>
+
+            <div class="user-actions">
+                <button class="action-item" id="btnLogin" onclick="onUserIconClick()">
+                    <i class="fa-regular fa-user"></i>
+                    <span id="userLabel">Iniciar Sesión</span>
+                </button>
+                <button class="action-item" onclick="abrirFavoritos()">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>favoritos</span>
+                    <span class="badge-count" id="favBadge" style="display:none;">0</span>
+                </button>
+                <button class="action-item" onclick="abrirCarrito()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Carrito</span>
+                    <span class="badge-count" id="cartBadge" style="display:none;">0</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- BARRA DE NAVEGACIÓN -->
+       <nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+        <li><a href="hogar.html">Hogar</a></li>
+        <li><a href="belleza.html">Belleza</a></li>
+        <li><a href="tecnologia.html">Tecnologia</a></li>
+    </ul>
+</nav>
+
+        <main>
+            <!-- SECCIÓN HERO BELLEZA -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Realza tu belleza,<br><span>al mejor precio</span></h2>
+                    <p>Descubre nuestra colección de cuidado de la piel, maquillaje y fragancias de marcas exclusivas.</p>
+                    <button class="btn-primary" onclick="document.getElementById('productos-belleza').scrollIntoView({behavior:'smooth'})">
+                        Ver catálogo <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                </div>
+
+                <!-- Banner Image (puedes cambiar esta URL por una de tus imágenes locales en Assets) -->
+                <div class="hero-image-placeholder"></div>
+
+                <div class="hero-badge">
+                    Nuevos<br>ingresos<br><span>2026</span>
+                </div>
+            </section>
+
+            <!-- BANNERS DE BENEFICIOS -->
+            <section class="benefits-banner">
+                <button class="benefit-card blue" onclick="mostrarInfo('fa-solid fa-truck', 'Envíos a todo el país', '¡Recibe tus productos en la puerta de tu casa en menos de 24/48 horas para que disfrutes tu compra cuanto antes!')">
+                    <div class="benefit-icon"><i class="fa-solid fa-truck"></i></div>
+                    <div class="benefit-text">
+                        <h4>Envíos a todo el país</h4>
+                        <p>Rapidos y seguros</p>
+                    </div>
+                </button>
+
+                <button class="benefit-card green" onclick="mostrarInfo('fa-solid fa-shield', 'Pagos 100% seguros', 'Utilizamos tecnología de encriptación avanzada. Tus datos y tu dinero están totalmente protegidos en cada transacción.')">
+                    <div class="benefit-icon"><i class="fa-solid fa-shield"></i></div>
+                    <div class="benefit-text">
+                        <h4>Pagos 100% seguros</h4>
+                        <p>Tu compra protegida</p>
+                    </div>
+                </button>
+
+                <button class="benefit-card light" onclick="mostrarInfo('fa-solid fa-tag', 'Precios bajos todos los días', '¿No era lo que esperabas? Tienes 30 días para devolver o cambiar tu producto sin ningún costo adicional ni papeleos.')">
+                    <div class="benefit-icon"><i class="fa-solid fa-tag"></i></div>
+                    <div class="benefit-text">
+                        <h4>Precios bajos todos los días</h4>
+                        <p>Calidad al mejor precio</p>
+                    </div>
+                </button>
+            </section>
+
+            <!-- GRID DE PRODUCTOS (2 FILAS DE 3 = 6 PRODUCTOS) -->
+            <h3 class="section-title" id="productos-belleza"><i class="fa-solid fa-wand-magic-sparkles" style="color: #D946EF;"></i> Especiales en Belleza</h3>
+            <section class="products-grid" id="productsGrid">
+                <!-- Los productos se generan dinámicamente con JavaScript -->
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER CON MÉTODOS DE PAGO INCLUÍDOS -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">                    
+                    <div>
+                        <h1>nova<span>AIR</span></h1>
+                        <p>todo lo que necesitas al mejor precio</p>
+                    </div>
+                </div>
+                
+                <!-- REDES SOCIALES (Si aplicaste el script de las imágenes SVG/PNG cámbialo aquí) -->
+              <div class="social-icons">
+                    <a href="https://www.instagram.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <img src="../Assets/instagram.png" alt="Instagram" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.facebook.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <img src="../Assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.tiktok.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <img src="../Assets/tiktok.png" alt="TikTok" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.x.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <img src="../Assets/x.png" alt="X" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                </div>
+
+                <div class="payment-methods">
+                    <h5>MÉTODOS DE PAGO</h5>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-mastercard" style="color: #EB001B;"></i>
+                        <i class="fa-brands fa-cc-visa" style="color: #1A1F71;"></i>
+                        <i class="fa-brands fa-cc-paypal" style="color: #003087;"></i>
+                        <i class="fa-brands fa-cc-amex" style="color: #2E77BC;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>COMPRA</h4>
+                <ul>
+                    <li><button onclick="document.querySelector('.btn-categories').click()">Todas las categorias</button></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-sparkles', 'Novedades', 'Todas las semanas sumamos productos nuevos a nuestro catálogo.')">Novedades</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-copyright', 'Marcas', 'Trabajamos únicamente con marcas originales y proveedores verificados.')">Marcas</button></li>
+                    <li><a href="mas-vendidos.html">Más vendidos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><button onclick="mostrarInfo('fa-solid fa-truck', 'Envíos', 'Realizamos envíos a todo el país en 24/48 horas.')">Envios</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega.')">Pagos</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar cambio.')">Cambios y devoluciones</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas? Visita nuestro centro de ayuda.')">Preguntas frecuentes</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com')">Contacto</button></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>MI CUENTA</h4>
+                <ul>
+                    <li><button onclick="onUserIconClick()" id="footerLoginBtn">Iniciar sesion</button></li>
+                    <li><button onclick="verPedidos()">Mis pedidos</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 novaAIR. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- MODALES (Ocultos hasta que se llaman con JS) -->
+    <div id="infoModal" class="modal-overlay"><div class="modal-box"><span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span><i id="infoModalIcon" class="modal-icon-top"></i><h3 id="infoModalTitle" class="modal-title"></h3><p id="infoModalText"></p><button class="modal-btn" onclick="cerrarModal('infoModal')">Aceptar</button></div></div>
+    
+    <div id="loginModal" class="modal-overlay"><div class="modal-box"><span class="modal-close-btn" onclick="cerrarModal('loginModal')">&times;</span><i class="fa-regular fa-circle-user modal-icon-top"></i><h3 class="modal-title" id="loginModalTitle">Iniciar sesión</h3><div id="loginFields"><div class="form-group" id="nameFieldGroup" style="display:none;"><label>Nombre</label><input type="text" id="regName" placeholder="Tu nombre"></div><div class="form-group"><label>Correo electrónico</label><input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com"></div><div class="form-group"><label>Contraseña</label><input type="password" id="loginPassword" placeholder="••••••••"></div><p class="form-error" id="loginError">Error.</p><button class="modal-btn" id="loginSubmitBtn" onclick="procesarLogin()">Iniciar sesión</button></div><p class="form-switch"><span id="switchLoginText">¿No tienes cuenta? <a onclick="cambiarModoLogin(true)">Regístrate</a></span><span id="switchRegisterText" style="display:none;">¿Ya tienes cuenta? <a onclick="cambiarModoLogin(false)">Inicia sesión</a></span></p></div></div>
+    
+    <div id="accountModal" class="modal-overlay"><div class="modal-box"><span class="modal-close-btn" onclick="cerrarModal('accountModal')">&times;</span><i class="fa-regular fa-circle-user modal-icon-top"></i><h3 class="modal-title">¡Hola, <span id="accountUserName">Usuario</span>!</h3><p>Desde aquí puedes revisar tus pedidos o cerrar tu sesión.</p><button class="modal-btn" onclick="cerrarModal('accountModal'); verPedidos();">Ver mis pedidos</button><button class="modal-btn secondary" onclick="cerrarSesion()">Cerrar sesión</button></div></div>
+    
+    <div id="favModal" class="modal-overlay"><div class="modal-box modal-wide"><span class="modal-close-btn" onclick="cerrarModal('favModal')">&times;</span><h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-heart" style="color:var(--danger-red);"></i> Tus favoritos</h3><div id="favList"></div></div></div>
+    
+    <div id="cartModal" class="modal-overlay"><div class="modal-box modal-wide"><span class="modal-close-btn" onclick="cerrarModal('cartModal')">&times;</span><h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-cart-shopping"></i> Tu carrito</h3><div id="cartList"></div><div id="cartTotalWrap" style="display:none;"><div class="cart-total-row"><span>Total</span><span id="cartTotalValue">$0.00</span></div><button class="modal-btn" onclick="irACheckout()">Finalizar compra</button></div></div></div>
+    
+    <div id="checkoutModal" class="modal-overlay"><div class="modal-box"><span class="modal-close-btn" onclick="cerrarModal('checkoutModal')">&times;</span><i class="fa-solid fa-box-open modal-icon-top"></i><h3 class="modal-title">Confirmar pedido</h3><p>Estás a punto de comprar <strong id="checkoutCount">0</strong> producto(s) por un total de <strong id="checkoutTotal">$0.00</strong>.</p><button class="modal-btn" onclick="confirmarCompra()">Confirmar y pagar</button><button class="modal-btn secondary" onclick="cerrarModal('checkoutModal')">Cancelar</button></div></div>
+    
+    <div id="successModal" class="modal-overlay"><div class="modal-box"><span class="modal-close-btn" onclick="cerrarModal('successModal')">&times;</span><div class="order-success-icon"><i class="fa-solid fa-check"></i></div><h3 class="modal-title">¡Compra realizada!</h3><p>Te enviamos la confirmación a tu correo.</p><div class="order-number" id="orderNumberText">Pedido #000000</div><button class="modal-btn" onclick="cerrarModal('successModal')">Seguir comprando</button></div></div>
+    
+    <div id="ordersModal" class="modal-overlay"><div class="modal-box modal-wide"><span class="modal-close-btn" onclick="cerrarModal('ordersModal')">&times;</span><h3 class="modal-title" style="text-align:center; margin-bottom: 10px;"><i class="fa-solid fa-receipt"></i> Mis pedidos</h3><div id="ordersList"></div></div></div>
+    
+    <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
+     <script src="JS/main.js"></script>
+    <!-- SCRIPTS LÓGICOS -->
+    <script>
+        const state = { user: null, favorites: new Set(), cart: {}, orders: [], registeredUser: null, loginMode: 'login' };
+
+        /* ================= CATALOGO BELLEZA (6 PRODUCTOS) ================= */
+        const products = [
+            {
+                id: 'b1',
+                title: 'Set de Skincare Premium',
+                image: "Assets/Set de belleza.png",
+                priceCurrent: 29.50,
+                priceOld: 40.00,
+                discount: '-26%',
+                stars: 5
+            },
+            {
+                id: 'b2',
+                title: 'Paleta de Sombras Nude',
+                image: 'https://images.unsplash.com/photo-1512496015851-a1dc8f4155bc?auto=format&fit=crop&q=80&w=400',
+                priceCurrent: 18.99,
+                priceOld: 25.00,
+                discount: '-24%',
+                stars: 4
+            },
+            {
+                id: 'b3',
+                title: 'Base Líquida Acabado Mate',
+                image: 'https://images.unsplash.com/photo-1631214500515-e4ace70da275?auto=format&fit=crop&q=80&w=400',
+                priceCurrent: 22.50,
+                priceOld: 30.00,
+                discount: '-25%',
+                stars: 5
+            },
+            {
+                id: 'b4',
+                title: 'Sérum Ácido Hialurónico',
+                image: 'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=400',
+                priceCurrent: 15.00,
+                priceOld: 20.00,
+                discount: '-25%',
+                stars: 5
+            },
+            {
+                id: 'b5',
+                title: 'Labial Mate Larga Duración',
+                image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400',
+                priceCurrent: 9.99,
+                priceOld: 14.50,
+                discount: '-30%',
+                stars: 4
+            },
+            {
+                id: 'b6',
+                title: 'Perfume Floral Mujer 100ml',
+                image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400',
+                priceCurrent: 45.00,
+                priceOld: 65.00,
+                discount: '-30%',
+                stars: 5
+            }
+        ];
+
+        /* =====================================================
+           RENDER Y LOGICA GENERAL
+           ===================================================== */
+        function renderStars(count) {
+            let html = '';
+            for (let i = 0; i < 5; i++) {
+                html += i < count ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+            }
+            return html;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map(p => `
+                <article class="product-card">
+                    <div class="discount-badge">${p.discount}</div>
+                    <button class="favorite-toggle ${state.favorites.has(p.id) ? 'active' : ''}" id="fav-${p.id}" onclick="toggleFavorite('${p.id}')" title="Agregar a favoritos">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <img src="${p.image}" alt="${p.title}" class="product-image">
+                    <h4 class="product-title">${p.title}</h4>
+                    <div class="product-prices">
+                        <span class="price-current">$${p.priceCurrent.toFixed(2)}</span>
+                        <span class="price-old">$${p.priceOld.toFixed(2)}</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="stars">${renderStars(p.stars)}</div>
+                        <button class="btn-cart" id="cartbtn-${p.id}" onclick="addToCart('${p.id}')" title="Agregar al carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function abrirModal(id) { document.getElementById(id).classList.add('active'); }
+        function cerrarModal(id) { document.getElementById(id).classList.remove('active'); }
+        function mostrarInfo(icono, titulo, texto) {
+            document.getElementById('infoModalIcon').className = 'modal-icon-top ' + icono;
+            document.getElementById('infoModalTitle').textContent = titulo;
+            document.getElementById('infoModalText').textContent = texto;
+            abrirModal('infoModal');
+        }
+        
+        let toastTimer = null;
+        function mostrarToast(texto) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastText').textContent = texto;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('active'); });
+        });
+
+        function onUserIconClick() {
+            if (state.user) { document.getElementById('accountUserName').textContent = state.user.name; abrirModal('accountModal'); } 
+            else { cambiarModoLogin(false); abrirModal('loginModal'); }
+        }
+
+        function cambiarModoLogin(esRegistro) {
+            state.loginMode = esRegistro ? 'register' : 'login';
+            document.getElementById('nameFieldGroup').style.display = esRegistro ? 'block' : 'none';
+            document.getElementById('loginModalTitle').textContent = esRegistro ? 'Crear cuenta' : 'Iniciar sesión';
+            document.getElementById('loginSubmitBtn').textContent = esRegistro ? 'Crear cuenta' : 'Iniciar sesión';
+            document.getElementById('switchLoginText').style.display = esRegistro ? 'none' : 'inline';
+            document.getElementById('switchRegisterText').style.display = esRegistro ? 'inline' : 'none';
+            document.getElementById('loginError').style.display = 'none';
+        }
+
+        function procesarLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const errorEl = document.getElementById('loginError');
+
+            if (state.loginMode === 'register') {
+                const name = document.getElementById('regName').value.trim();
+                if (!name || !email || !password) { errorEl.textContent = 'Completa todos los campos.'; errorEl.style.display = 'block'; return; }
+                state.registeredUser = { name, email, password };
+                state.user = { name, email };
+                mostrarToast('Cuenta creada. ¡Bienvenido/a, ' + name + '!');
+            } else {
+                if (!email || !password) { errorEl.textContent = 'Ingresa tu correo y contraseña.'; errorEl.style.display = 'block'; return; }
+                if (state.registeredUser && state.registeredUser.email === email && state.registeredUser.password !== password) {
+                    errorEl.textContent = 'Contraseña incorrecta.'; errorEl.style.display = 'block'; return;
+                }
+                const name = (state.registeredUser && state.registeredUser.email === email) ? state.registeredUser.name : email.split('@')[0];
+                state.user = { name, email };
+                mostrarToast('¡Bienvenido/a de nuevo, ' + name + '!');
+            }
+            errorEl.style.display = 'none'; document.getElementById('loginEmail').value = ''; document.getElementById('loginPassword').value = ''; document.getElementById('regName').value = '';
+            actualizarUI(); cerrarModal('loginModal');
+        }
+
+        function cerrarSesion() { state.user = null; cerrarModal('accountModal'); actualizarUI(); mostrarToast('Sesión cerrada.'); }
+
+        function actualizarUI() {
+            const label = document.getElementById('userLabel');
+            const footerBtn = document.getElementById('footerLoginBtn');
+            if (state.user) { label.textContent = state.user.name.split(' ')[0]; footerBtn.textContent = 'Mi cuenta'; } 
+            else { label.textContent = 'Iniciar Sesión'; footerBtn.textContent = 'Iniciar sesion'; }
+        }
+
+        function toggleFavorite(id) {
+            const btn = document.getElementById('fav-' + id);
+            if (state.favorites.has(id)) { state.favorites.delete(id); btn.classList.remove('active'); mostrarToast('Eliminado de favoritos.'); } 
+            else { state.favorites.add(id); btn.classList.add('active'); mostrarToast('Agregado a favoritos.'); }
+            actualizarBadges();
+        }
+
+        function abrirFavoritos() {
+            const list = document.getElementById('favList');
+            const favProducts = products.filter(p => state.favorites.has(p.id));
+            if (favProducts.length === 0) { list.innerHTML = `<div class="list-empty"><i class="fa-regular fa-heart"></i>Sin favoritos.</div>`; } 
+            else {
+                list.innerHTML = favProducts.map(p => `
+                    <div class="mini-item"><div class="mini-item-icon"><img src="${p.image}" style="width:100%;height:100%;object-fit:contain;"></div>
+                    <div class="mini-item-info"><h5>${p.title}</h5><p>$${p.priceCurrent.toFixed(2)}</p></div>
+                    <div class="mini-item-actions"><button class="qty-btn" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i></button><button class="remove-btn" onclick="toggleFavorite('${p.id}'); abrirFavoritos();"><i class="fa-solid fa-trash"></i></button></div></div>
+                `).join('');
+            }
+            abrirModal('favModal');
+        }
+
+        function addToCart(id) {
+            state.cart[id] = (state.cart[id] || 0) + 1; actualizarBadges();
+            const btn = document.getElementById('cartbtn-' + id);
+            if (btn) { btn.classList.add('added'); btn.innerHTML = '<i class="fa-solid fa-check"></i>'; setTimeout(() => { btn.classList.remove('added'); btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>'; }, 900); }
+            mostrarToast('Agregado al carrito.');
+        }
+
+        function cambiarCantidad(id, delta) { if (!state.cart[id]) return; state.cart[id] += delta; if (state.cart[id] <= 0) delete state.cart[id]; actualizarBadges(); abrirCarrito(); }
+        function quitarDelCarrito(id) { delete state.cart[id]; actualizarBadges(); abrirCarrito(); }
+        function calcularTotalCarrito() { return Object.entries(state.cart).reduce((total, [id, qty]) => { const product = products.find(p => p.id === id); return total + (product ? product.priceCurrent * qty : 0); }, 0); }
+
+        function abrirCarrito() {
+            const list = document.getElementById('cartList'); const totalWrap = document.getElementById('cartTotalWrap'); const entries = Object.entries(state.cart);
+            if (entries.length === 0) { list.innerHTML = `<div class="list-empty"><i class="fa-solid fa-cart-shopping"></i>Tu carrito está vacío.</div>`; totalWrap.style.display = 'none'; } 
+            else {
+                list.innerHTML = entries.map(([id, qty]) => {
+                    const p = products.find(prod => prod.id === id);
+                    return `<div class="mini-item"><div class="mini-item-icon"><img src="${p.image}" style="width:100%;height:100%;object-fit:contain;"></div><div class="mini-item-info"><h5>${p.title}</h5><p>$${p.priceCurrent.toFixed(2)} c/u</p></div><div class="mini-item-actions"><button class="qty-btn" onclick="cambiarCantidad('${id}', -1)">−</button><span class="qty-value">${qty}</span><button class="qty-btn" onclick="cambiarCantidad('${id}', 1)">+</button><button class="remove-btn" onclick="quitarDelCarrito('${id}')"><i class="fa-solid fa-trash"></i></button></div></div>`;
+                }).join('');
+                document.getElementById('cartTotalValue').textContent = '$' + calcularTotalCarrito().toFixed(2); totalWrap.style.display = 'block';
+            }
+            abrirModal('cartModal');
+        }
+
+        function actualizarBadges() {
+            const favCount = state.favorites.size; const favBadge = document.getElementById('favBadge');
+            favBadge.textContent = favCount; favBadge.style.display = favCount > 0 ? 'flex' : 'none';
+            const cartCount = Object.values(state.cart).reduce((a, b) => a + b, 0); const cartBadge = document.getElementById('cartBadge');
+            cartBadge.textContent = cartCount; cartBadge.style.display = cartCount > 0 ? 'flex' : 'none';
+        }
+
+        function irACheckout() {
+            if (Object.entries(state.cart).length === 0) return;
+            if (!state.user) { cerrarModal('cartModal'); mostrarToast('Inicia sesión para comprar.'); cambiarModoLogin(false); abrirModal('loginModal'); return; }
+            document.getElementById('checkoutCount').textContent = Object.entries(state.cart).reduce((a, [, qty]) => a + qty, 0);
+            document.getElementById('checkoutTotal').textContent = '$' + calcularTotalCarrito().toFixed(2);
+            cerrarModal('cartModal'); abrirModal('checkoutModal');
+        }
+
+        function confirmarCompra() {
+            const orderId = Math.floor(100000 + Math.random() * 900000);
+            state.orders.unshift({ id: orderId, date: new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }), total: calcularTotalCarrito(), items: Object.entries(state.cart).map(([id, qty]) => ({ title: products.find(p => p.id === id).title, qty })), status: 'Confirmado' });
+            state.cart = {}; actualizarBadges(); cerrarModal('checkoutModal');
+            document.getElementById('orderNumberText').textContent = 'Pedido #' + orderId; abrirModal('successModal');
+        }
+
+        function verPedidos() {
+            if (!state.user) { mostrarToast('Inicia sesión.'); cambiarModoLogin(false); abrirModal('loginModal'); return; }
+            const list = document.getElementById('ordersList');
+            if (state.orders.length === 0) { list.innerHTML = `<div class="list-empty"><i class="fa-solid fa-receipt"></i>Sin pedidos.</div>`; } 
+            else { list.innerHTML = state.orders.map(order => `<div class="mini-item" style="align-items:flex-start;"><div class="mini-item-icon"><i class="fa-solid fa-box"></i></div><div class="mini-item-info"><h5>Pedido #${order.id} · ${order.status}</h5><p>${order.date} · ${order.items.reduce((a, it) => a + it.qty, 0)} producto(s)</p><p style="color:var(--text-dark);font-weight:700;">$${order.total.toFixed(2)}</p></div></div>`).join(''); }
+            abrirModal('ordersModal');
+        }
+
+        renderProducts(); actualizarUI(); actualizarBadges();
+    </script>
+</body>
+</html>

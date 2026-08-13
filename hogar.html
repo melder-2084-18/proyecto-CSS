@@ -8,23 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        /* --- VARIABLES DE COLOR Y ESTILOS GLOBALES --- */
-        :root {
-            --primary-blue: #2563EB;
-            --brand-blue: #2B6CB0;
-            --accent-cyan: #38BDF8;
-            --light-cyan: #E0F2FE;
-            --bg-banner: #EFF6FF;
-            --text-dark: #1E293B;
-            --text-muted: #64748B;
-            --discount-red: #EF4444;
-            --star-yellow: #F59E0B;
-            --card-border: #E2E8F0;
-            --footer-bg: #F0F7FF;
-            --success-green: #059669;
-        }
+     <link rel="stylesheet" href="Css/style.css">
 
+<<<<<<< HEAD
         * {
             margin: 0;
             padding: 0;
@@ -875,6 +861,8 @@
         
     </style>
     <link rel="stylesheet" href="../Css/buscador.css">
+=======
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
 </head>
 <body>
 
@@ -891,9 +879,9 @@
 </a>
 
                 <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Buscar productos, categorías o marcas">
-                </div>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Buscar productos, categorias o marcas">
+</div>
 
                 <div class="header-actions">
                     <button class="action-item" onclick="onUserIconClick()">
@@ -914,6 +902,7 @@
             </div>
 
             <nav class="navbar">
+<<<<<<< HEAD
             <button class="btn-support" onclick="openSupportModal()">
     <i class="fa-solid fa-headset"></i> Atención al cliente
 </button>
@@ -927,6 +916,17 @@
         </nav>
 
         </header>
+=======
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+        <li><a href="hogar.html">Hogar</a></li>
+        <li><a href="belleza.html">Belleza</a></li>
+        <li><a href="tecnologia.html">Tecnologia</a></li>
+    </ul>
+</nav>
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
 
         <section class="hero-banner">
             <div class="hero-content">
@@ -976,63 +976,83 @@
             <div class="product-grid" id="productGrid">
                 <!-- Los productos se generan dinámicamente con JavaScript -->
             </div>
-        </section>
+      </section> <!-- Aquí termina tu sección de productos -->
 
-       <footer>
-            <div class="footer-grid">
-                <div>
-                    <a href="index.html" class="logo" style="text-decoration:none;">
-                        <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
-                        <div>
-                            <h1>nova<span>AIR</span></h1>
-                            <p>todo lo que necesitas al mejor precio</p>
-                        </div>
-                    </a>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+    </div> <!-- 1. ¡OJO! ESTE ES EL DIV QUE MUDAMOS AQUÍ PARA CERRAR EL CONTENEDOR ANTES DEL FOOTER -->
+
+    <!-- 2. FOOTER EXACTAMENTE IGUAL AL DEL INICIO -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="../Assets/Logo nova air.png" alt="Icono novaAIR" style="height: 24px;">
+                    <div>
+                        <h1>nova<span>AIR</span></h1>
+                        <p>todo lo que necesitas al mejor precio</p>
                     </div>
                 </div>
-
-                    <div class="footer-column">
-                    <h5>Compra</h5>
-                    <ul>
-                        <li><button onclick="document.querySelector('.btn-categories').click()">Todas las categorías</button></li>
-                        <li><a href="ofertas.html">Ofertas</a></li>
-                        <li><button onclick="mostrarInfo('fa-solid fa-sparkles', 'Novedades', 'Todas las semanas sumamos productos nuevos a nuestro catálogo. ¡Vuelve pronto para verlos primero!')">Novedades</button></li>
-                        <li><button onclick="mostrarInfo('fa-solid fa-copyright', 'Marcas', 'Trabajamos únicamente con marcas originales y proveedores verificados para garantizar la calidad de cada producto.')">Marcas</button></li>
-                        <li><a href="mas-vendidos.html">Más vendidos</a></li>
-                    </ul>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <img src="../Assets/instagram.png" alt="Instagram" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.facebook.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <img src="../Assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.tiktok.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <img src="../Assets/tiktok.png" alt="TikTok" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.x.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <img src="../Assets/x.png" alt="X" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
                 </div>
-
-                <div class="footer-column">
-                    <h5>Ayuda</h5>
-                    <ul>
-                        <li><button onclick="mostrarInfo('fa-solid fa-truck', 'Envíos', 'Realizamos envíos a todo el país en 24/48 horas. El costo de envío se calcula automáticamente al finalizar tu compra según tu ubicación.')">Envíos</button></li>
-                        <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega. Todas las transacciones están protegidas con encriptación de extremo a extremo.')">Pagos</button></li>
-                        <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar un cambio o devolución sin costo adicional.')">Cambios y devoluciones</button></li>
-                        <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas sobre tu pedido, pagos o envíos? Visita nuestro centro de ayuda o escríbenos y te responderemos en menos de 24 horas.')">Preguntas frecuentes</button></li>
-                        <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com o al chat en línea, disponible de lunes a sábado de 8:00 a.m. a 6:00 p.m.')">Contacto</button></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h5>Mi Cuenta</h5>
-                    <ul>
-                        <li><button onclick="onUserIconClick()" id="footerLoginBtn">Iniciar sesión</button></li>
-                        <li><button onclick="verPedidos()">Mis pedidos</button></li>
-                    </ul>
+                <!-- MÉTODOS DE PAGO (Solo en Hogar/Ofertas si quieres agregarlo, o déjalo así) -->
+                <div class="payment-methods">
+                    <h5>MÉTODOS DE PAGO</h5>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-mastercard" style="color: #EB001B;"></i>
+                        <i class="fa-brands fa-cc-visa" style="color: #1A1F71;"></i>
+                        <i class="fa-brands fa-cc-paypal" style="color: #003087;"></i>
+                        <i class="fa-brands fa-cc-amex" style="color: #2E77BC;"></i>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">© 2026 novaAIR. Todos los derechos reservados.</div>
-        </footer>
 
-    </div>
+            <div class="footer-col">
+                <h4>COMPRA</h4>
+                <ul>
+                    <li><button onclick="document.querySelector('.btn-categories').click()">Todas las categorías</button></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-sparkles', 'Novedades', 'Todas las semanas sumamos productos nuevos a nuestro catálogo.')">Novedades</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-copyright', 'Marcas', 'Trabajamos únicamente con marcas originales y proveedores verificados.')">Marcas</button></li>
+                    <li><a href="mas-vendidos.html">Más vendidos</a></li>
+                </ul>
+            </div>
 
-    <!-- ============ MODAL GENÉRICO DE INFORMACIÓN ============ -->
-    <div id="infoModal" class="modal-overlay">
+            <div class="footer-col">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><button onclick="mostrarInfo('fa-solid fa-truck', 'Envíos', 'Realizamos envíos a todo el país en 24/48 horas.')">Envíos</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-credit-card', 'Pagos', 'Aceptamos tarjetas de crédito, débito y pagos contra entrega.')">Pagos</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-rotate-left', 'Cambios y devoluciones', 'Tienes 30 días desde la recepción de tu pedido para solicitar cambio.')">Cambios y devoluciones</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-circle-question', 'Preguntas frecuentes', '¿Tienes dudas sobre tu pedido? Visita nuestro centro de ayuda.')">Preguntas frecuentes</button></li>
+                    <li><button onclick="mostrarInfo('fa-solid fa-headset', 'Contacto', 'Escríbenos a soporte@novaair.com')">Contacto</button></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>MI CUENTA</h4>
+                <ul>
+                    <li><button onclick="onUserIconClick()" id="footerLoginBtn">Iniciar sesión</button></li>
+                    <li><button onclick="verPedidos()">Mis pedidos</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 novaAIR. Todos los derechos reservados.</div>
+    </footer>
+
+    <!-- AQUÍ EMPIEZAN LOS MODALES Y SCRIPTS NORMALES -->
+    <div id="infoModal" class="modal-overlay"> ...
+
         <div class="modal-box">
             <span class="modal-close-btn" onclick="cerrarModal('infoModal')">&times;</span>
             <i id="infoModalIcon" class="modal-icon-top fa-solid fa-circle-info"></i>
@@ -1145,7 +1165,7 @@
 
     <!-- Notificación tipo toast -->
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
-
+    <script src="JS/main.js"></script>
     <!-- SCRIPT PRINCIPAL -->
     <script>
         /* =====================================================

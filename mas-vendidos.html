@@ -9,6 +9,7 @@
     <!-- Iconos de FontAwesome (Versión actualizada) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<<<<<<< HEAD
     <style>
         /* ================= VARIABLES Y RESET ================= */
         :root {
@@ -627,6 +628,9 @@
         #toast i { color: #34D399; }
     </style>
     <link rel="stylesheet" href="../Css/buscador.css">
+=======
+   <link rel="stylesheet" href="Css/style.css">
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
 </head>
 <body>
 
@@ -642,11 +646,9 @@
             </a>
 
             <div class="search-bar">
-                <div class="search-icon-bg">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <input type="text" placeholder="Buscar productos, categorias o marcas">
-            </div>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Buscar productos, categorias o marcas">
+</div>
 
             <div class="user-actions">
                 <button class="action-item" id="btnLogin" onclick="onUserIconClick()">
@@ -667,6 +669,7 @@
         </header>
 
         <!-- BARRA DE NAVEGACIÓN -->
+<<<<<<< HEAD
         <nav class="navbar">
             <button class="btn-support" onclick="openSupportModal()">
     <i class="fa-solid fa-headset"></i> Atención al cliente
@@ -679,6 +682,18 @@
                 <li><a href="tecnologia.html">Tecnologia</a></li>
             </ul>
         </nav>
+=======
+       <nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+        <li><a href="hogar.html">Hogar</a></li>
+        <li><a href="belleza.html">Belleza</a></li>
+        <li><a href="tecnologia.html">Tecnologia</a></li>
+    </ul>
+</nav>
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
 
         <main>
             <!-- SECCIÓN HERO (ADAPTADA A MÁS VENDIDOS) -->
@@ -746,11 +761,19 @@
                         <p>todo lo que necesitas al mejor precio</p>
                     </div>
                 </div>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+               <div class="social-icons">
+                    <a href="https://www.instagram.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <img src="../Assets/instagram.png" alt="Instagram" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.facebook.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <img src="../Assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.tiktok.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <img src="../Assets/tiktok.png" alt="TikTok" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.x.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <img src="../Assets/x.png" alt="X" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
                 </div>
             </div>
 
@@ -901,7 +924,7 @@
 
     <!-- Notificación tipo toast -->
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
-
+    <script src="JS/main.js"></script>
     <!-- SCRIPT PRINCIPAL -->
     <script>
         const state = {

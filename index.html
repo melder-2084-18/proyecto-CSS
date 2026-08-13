@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>novaAIR - Tienda Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* ================= VARIABLES Y RESET ================= */
@@ -865,6 +866,11 @@
         
     </style>
     <link rel="stylesheet" href="../Css/buscador.css">
+=======
+    <!-- Iconos de FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   <link rel="stylesheet" href="Css/style.css">
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
 </head>
 <body>
 
@@ -878,12 +884,10 @@
                 </div>
             </a>
 
-            <div class="search-bar">
-                <div class="search-icon-bg">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <input type="text" placeholder="Buscar productos, categorias o marcas">
-            </div>
+          <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Buscar productos, categorias o marcas">
+</div>
 
             <div class="user-actions">
                 <button class="action-item" id="btnLogin" onclick="onUserIconClick()">
@@ -903,6 +907,7 @@
             </div>
         </header>
 
+<<<<<<< HEAD
         <nav class="navbar">
             <button class="btn-support" onclick="openSupportModal()">
     <i class="fa-solid fa-headset"></i> Atención al cliente
@@ -916,6 +921,19 @@
             </ul>
         </nav>
 
+=======
+        <!-- BARRA DE NAVEGACIÓN -->
+       <nav class="navbar">
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="mas-vendidos.html">Mas vendidos</a></li>
+        <li><a href="hogar.html">Hogar</a></li>
+        <li><a href="belleza.html">Belleza</a></li>
+        <li><a href="tecnologia.html">Tecnologia</a></li>
+    </ul>
+</nav>
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
         <main>
             <section class="hero">
                 <div class="hero-content">
@@ -926,7 +944,7 @@
                     </button>
                 </div>
 
-                <div class="hero-image-placeholder"></div>
+                <div class="hero-image-placeholder" style="background-image: url('Assets/banner\ 1.png');"></div>
 
                 <div class="hero-badge">
                     Ofertas<br>hasta el<br><span>50%OFF</span>
@@ -984,10 +1002,27 @@
                     </div>
                 </div>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <img src="../Assets/instagram.png" alt="Instagram" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.facebook.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <img src="../Assets/facebook.png" alt="Facebook" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.tiktok.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <img src="../Assets/tiktok.png" alt="TikTok" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.x.com" class="icono-social" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <img src="../Assets/x.png" alt="X" style="width: 20px; height: 20px; object-fit: contain;">
+                    </a>
+                </div>
+                <div class="payment-methods">
+                    <h5>MÉTODOS DE PAGO</h5>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-mastercard" style="color: #EB001B;"></i>
+                        <i class="fa-brands fa-cc-visa" style="color: #1A1F71;"></i>
+                        <i class="fa-brands fa-cc-paypal" style="color: #003087;"></i>
+                        <i class="fa-brands fa-cc-amex" style="color: #2E77BC;"></i>
+                    </div>
                 </div>
             </div>
 
@@ -1131,8 +1166,14 @@
     </div>
 
     <div id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Listo</span></div>
+<<<<<<< HEAD
 
+=======
+     <script src="JS/main.js"></script>
+    <!-- SCRIPT PRINCIPAL -->
+>>>>>>> 1dbb1ff2e345c0e47995d93d04a906bd90bb32ba
     <script>
+       
         /* =====================================================
            ESTADO DE LA APLICACIÓN (en memoria, se reinicia al recargar)
            ===================================================== */
