@@ -188,8 +188,8 @@
 
         /* ================= HERO SECTION ================= */
         .hero {
-            background-color: var(--bg-light);
-            border-radius: 20px;
+        background: linear-gradient(135deg, #E0F2FE 0%, #EFF6FF 100%); 
+           border-radius: 20px;
             padding: 40px;
             display: flex;
             justify-content: space-between;
@@ -803,6 +803,24 @@
         .footer-col ul li button:hover {
             color: var(--primary-blue);
         }
+        
+        .payment-methods {
+            margin-top: 25px;
+        }
+        
+        .payment-methods h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+            font-size: 28px;
+            color: var(--text-gray);
+        }
 
         .footer-bottom {
             text-align: center;
@@ -995,6 +1013,15 @@
                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <h5>MÉTODOS DE PAGO</h5>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-mastercard" style="color: #EB001B;"></i>
+                        <i class="fa-brands fa-cc-visa" style="color: #1A1F71;"></i>
+                        <i class="fa-brands fa-cc-paypal" style="color: #003087;"></i>
+                        <i class="fa-brands fa-cc-amex" style="color: #2E77BC;"></i>
+                    </div>
                 </div>
             </div>
 
